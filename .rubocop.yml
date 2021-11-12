@@ -1,0 +1,29 @@
+Layout/LineLength:
+  Max: 120
+
+Lint/RaiseException:
+  Enabled: true
+
+Lint/StructNewOverride:
+  Enabled: true
+
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/MixinUsage:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
