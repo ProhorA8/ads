@@ -1,0 +1,23 @@
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Username</th>
+    <th>Email</th>
+    <th>Role</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @user.name %></td>
+      <td><%= @user.username %></td>
+      <td><%= @user.email %></td>
+      <td><%= @user.role %></td>
+      <td><%= link_to 'Edit', edit_user_path(@user) %></td>
+      <td>|</td>
+      <td><%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  </tbody>
+</table><br>
+
+<%= link_to 'Back', users_path %>

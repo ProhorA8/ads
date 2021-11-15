@@ -27,3 +27,9 @@ Style/MixinUsage:
 
 Style/ClassAndModuleChildren:
   Enabled: false
+
+Metrics/BlockLength:
+  Max: 35
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
