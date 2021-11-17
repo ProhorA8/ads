@@ -5,7 +5,10 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def show; end
+  def show
+    @ads = @user.ads.order(created_at: :desc)
+    @new_ad = @user.ads.build
+  end
 
   def new
     @user = User.new
@@ -20,7 +23,7 @@ class UsersController < ApplicationController
 
       redirect_to @user, notice: 'User was successfully created.'
     else
-      render action: 'new'
+      render :new
     end
   end
 

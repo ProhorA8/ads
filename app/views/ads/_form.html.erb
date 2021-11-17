@@ -1,0 +1,28 @@
+<!--Форма для создания/правки объявления-->
+<div class="form">
+  <%= form_for(@ad) do |f| %>
+    <% if @ad.errors.any? %>
+      <div class="form-errors">
+        <ul>
+          <% @ad.errors.full_messages.each do |message| %>
+            <li class="form-error-message"><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+<!--    Скрытое поле — айдишник юзера, кто создаёт объявление-->
+    <%= f.hidden_field :user_id %>
+
+    <div class="form-field">
+      <%= f.label :title, 'Название', class: 'form-label' %>
+      <%= f.text_area :title, class: 'form-textarea' %>
+    </div>
+
+    <div class="form-action buffer-both">
+      <%= f.submit 'Сохранить', class: 'button button-dark button-small' %>
+      или
+      <%= link_to 'вернуться', user_path(@ad.user) %>
+    </div>
+  <% end %>
+</div>

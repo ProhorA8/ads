@@ -13,11 +13,34 @@
       <td><%= @user.username %></td>
       <td><%= @user.email %></td>
       <td><%= @user.role %></td>
-      <td><%= link_to 'Edit', edit_user_path(@user) %></td>
-      <td>|</td>
-      <td><%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td class="button"><%= link_to 'На главную', users_path %></td>
+      <td class="button"><%= link_to 'Редактировать', edit_user_path(@user) %></td>
+      <td class="button"><%= link_to 'Удалить', @user, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
     </tr>
   </tbody>
 </table><br>
 
-<%= link_to 'Back', users_path %>
+<!--форма создания объявления пользователя-->
+<div>
+  <%= form_for @new_ad do |f| %>
+    <%= f.hidden_field :user_id %>
+
+    <div class="form-field">
+      <%= f.label 'Название для вашего объявления', class: 'form-label' %>
+      <%= f.text_area :title%>
+    </div>
+
+    <div class="">
+      <%= submit_tag 'Создать', class: 'button button-dark button-small' %>
+    </div>
+  <% end %>
+</div>
+
+<!--вывод всех объявлений пользователя-->
+<div class="user-ads buffer-both">
+  <div class="ads-list">
+    <% @ads.each do |ad| %>
+      <%= render partial: 'ads/ad', object: ad %>
+    <% end %>
+  </div>
+</div>

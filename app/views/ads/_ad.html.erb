@@ -1,0 +1,14 @@
+<!--Паршал отображения объявлений-->
+<div class="ad">
+  <div class="ad-content">
+    <div class="ad-text text-lead">
+      <%= link_to ad.title, ad_path(ad)  %>
+    </div>
+  </div>
+
+    <div class="ad-actions">
+      <%= link_to 'Редактировать', edit_ad_path(ad) %>
+      <%= link_to 'Удалить', ad_path(ad),
+                  method: :delete, data: {confirm: 'Точно удалить объявление?'} %>
+    </div>
+</div>

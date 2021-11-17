@@ -1,0 +1,7 @@
+<div class="user-ads buffer-both">
+  <div class="ads-list">
+    <% @ads.each do |ad| %>
+      <%= render partial: 'ad', object: ad %>
+    <% end %>
+  </div>
+</div>

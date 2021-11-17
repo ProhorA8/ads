@@ -1,3 +1,4 @@
+<!--Форма создания пользователя-->
 <%= form_with(model: user, local: true) do |form| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
@@ -9,31 +10,34 @@
       </ul>
     </div>
   <% end %>
+
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label :name, class: 'form-label' %>
     <%= form.text_field :name %>
   </div>
   <div class="field">
-    <%= form.label :username %>
+    <%= form.label :username, class: 'form-label' %>
     <%= form.text_field :username %>
   </div>
   <div class="field">
-    <%= form.label :email %>
+    <%= form.label :email, class: 'form-label' %>
     <%= form.text_field :email %>
   </div>
   <div class="field">
-    <%= form.label :role %>
+    <%= form.label :role, class: 'form-label' %>
     <%= form.select(:role, options_for_select([['admin'], ['user'], ['guest']]), {include_blank: true}) %>
   </div>
   <div class="field">
-    <%= form.label :password_hash %>
-    <%= form.text_field :password_hash %>
+    <%= form.label :password, class: 'form-label' %>
+    <%= form.text_field :password %>
   </div>
   <div class="field">
-    <%= form.label :password_salt %>
-    <%= form.text_field :password_salt %>
+    <%= form.label :password_confirmation, class: 'form-label' %>
+    <%= form.text_field :password_confirmation %>
   </div>
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions buffer-both">
+    <%= form.submit 'Создать', class: 'button button-dark button-small' %>
+    или
+    <%= link_to 'Назад', @user %>
   </div>
 <% end %>

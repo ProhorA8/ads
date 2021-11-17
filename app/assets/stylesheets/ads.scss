@@ -1,3 +1,40 @@
-// Place all the styles related to the Ads controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.ads-list {
+  padding: 10px 0;
+}
+
+.ad {
+  background: white;
+}
+
+.ad-content {
+  padding: 10px 15px;
+}
+
+.ad + .ad {
+  margin-top: 10px;
+}
+
+.ad-text,
+.ad-answer {
+  margin-bottom: 10px;
+}
+
+.ad-text {
+  color: #005a55;
+}
+
+.ad-date {
+  color: #a0a0a0;
+  font-size: 12px;
+}
+
+.ad-actions {
+  font-size: 20px;
+  border-top: 1px solid #D9E6E5;
+  text-align: right;
+  padding: 10px 15px;
+}
+
+.ad-actions a {
+  margin-left: 10px;
+}

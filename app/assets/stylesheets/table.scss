@@ -1,0 +1,29 @@
+table {
+  width: 100%; border-collapse: collapse;
+}
+
+tr {
+  height: 40px;
+}
+
+table thead tr {
+  color: #ffffff;
+  font-weight: bold;
+  background: #076a9b;
+}
+
+table thead tr td {
+  border: 1px solid #076a9b;
+}
+
+table tbody tr td {
+  border: 1px solid #e8e9eb;
+}
+
+table tbody tr:nth-child(2n) {
+  background: #dbdbdb;
+}
+
+table tbody tr:hover {
+  background: #ffffff;
+}

@@ -1,4 +1,10 @@
-<h1>Users</h1>
+<div class="buffer-both">
+  <h1>Пользователи</h1>
+</div>
+
+<div class="button button-light button-small buffer-both">
+  <%= link_to 'Новый пользователь', new_user_path %>
+</div>
 
 <table>
   <thead>
@@ -12,10 +18,8 @@
     <tr>
       <td><%= user.username %></td>
       <td><%= user.email %></td>
-      <td><%= link_to 'Show', user %></td>
+      <td class="button"><%= link_to 'Показать', user %></td>
     </tr>
   <% end %>
   </tbody>
 </table><br>
-
-<%= link_to 'New User', new_user_path %>

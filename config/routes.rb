@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'users#index'
+  root 'ads#index'
 
   resources :users
+  resources :ads
 end
