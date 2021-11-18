@@ -19,7 +19,7 @@ class AdsController < ApplicationController
 
     if @ad.save
 
-      redirect_to user_path(@ad.user), notice: 'Вы создали объявление'
+      redirect_to user_path(@ad.user), notice: I18n.t('controllers.ads.created')
     else
       render :edit, status: :unprocessable_entity
     end
@@ -29,7 +29,7 @@ class AdsController < ApplicationController
 
   def update
     if @ad.update(ad_params)
-      redirect_to user_path(@ad.user), notice: 'Объявление обновлено'
+      redirect_to user_path(@ad.user), notice: I18n.t('controllers.ads.updated')
     else
       render :edit, status: :unprocessable_entity
     end
@@ -39,7 +39,7 @@ class AdsController < ApplicationController
     user = @ad.user
 
     @ad.destroy
-    redirect_to user_path(user), notice: 'Объявление удалено'
+    redirect_to user_path(user), notice: I18n.t('controllers.ads.destroyed')
   end
 
   private

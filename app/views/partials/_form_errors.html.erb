@@ -3,7 +3,7 @@
 <% if errors.any? %>
   <div class="alert alert-danger">
     <div class="lead buffer-bottom">
-      В вашей форме <%= errors.count %> ошибок
+      <%= t('views.partials.form_errors.info', count: errors.count) %>
     </div>
 
     <ul>

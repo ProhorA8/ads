@@ -1,6 +1,5 @@
 <!--Форма пользователя-->
 <%= form_for @user, html: {multipart: true} do |f| %>
-  <%= render partial: 'partials/form_errors', locals: {model: @user} %>
 
   <div class="field">
     <%= f.label :name, class: 'form-label' %>
@@ -19,9 +18,9 @@
     <%= f.select(:role, options_for_select([['admin'], ['user'], ['guest']]), {include_blank: true}) %>
   </div>
   <div class="actions buffer-both">
-    <%= f.submit 'Сохранить', class: 'button button-dark button-small' %>
+    <%= f.submit t('views.users.form.save'), class: 'button button-dark button-small' %>
     или
-    <%= link_to 'Назад', @user %><br>
-    <p class="buffer-top"><%= link_to 'Удалить профиль', @user, method: :delete, data: { confirm: 'Вы уверены?' } %></p>
+    <%= link_to t('views.users.form.back'), @user %><br>
+<!--    <p class="buffer-top"><%#= link_to t('views.users.form.delete'), @user, method: :delete, data: { confirm: t('views.users.form.confirm_delete') } %></p>-->
   </div>
 <% end %>

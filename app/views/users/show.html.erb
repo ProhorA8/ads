@@ -1,10 +1,10 @@
 <table>
   <thead>
   <tr>
-    <th>Name</th>
-    <th>Username</th>
-    <th>Email</th>
-    <th>Role</th>
+    <th><%= t('views.users.show.name') %></th>
+    <th><%= t('views.users.show.username') %></th>
+    <th><%= t('views.users.show.email') %></th>
+    <th><%= t('views.users.show.role') %></th>
   </tr>
   </thead>
   <tbody>
@@ -13,9 +13,9 @@
       <td><%= @user.username %></td>
       <td><%= @user.email %></td>
       <td><%= @user.role %></td>
-      <td class="button"><%= link_to 'На главную', root_path %></td>
+      <td class="button"><%= link_to t('views.users.show.root'), root_path %></td>
       <% if @user == current_user %>
-        <td class="button"><%= link_to 'Редактировать', edit_user_path(@user) %></td>
+        <td class="button"><%= link_to t('views.users.show.edit'), edit_user_path(@user) %></td>
       <% end %>
     </tr>
   </tbody>
@@ -23,7 +23,7 @@
 
 <!--ссылка создания объявления пользователя-->
 <div class="buffer-both">
-  <%= link_to 'Создать объявление', new_ad_path, class: 'btn btn-success' %>
+  <%= link_to t('views.users.show.create_ad'), new_ad_path, class: 'btn btn-success' %>
 </div>
 
 <!--вывод всех объявлений пользователя-->
@@ -34,5 +34,7 @@
     </div>
   </div>
 <% else %>
-  <p class="buffer-top">Пользователь пока не создал объявление</p>
+  <p class="buffer-top">
+    <%= t('views.users.show.info') %>
+  </p>
 <% end %>

@@ -11,14 +11,14 @@
 
   <body>
   <div class="content">
-    <h1 class="title-large text-center"><%= link_to 'Объявления', root_path  %></h1>
+    <h1 class="title-large text-center"><%= link_to t('app.name'), root_path  %></h1>
     <ul>
       <% if user_signed_in? %>
-        <li><%= link_to 'Профиль', current_user %></li>
-        <li><%= link_to 'Выйти', destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to t('app.profile'), current_user %></li><br>
+        <li><%= link_to t('app.sign_out'), destroy_user_session_path, method: :delete %></li>
       <% else %>
-        <li><%= link_to 'Войти', new_user_session_path %></li>
-        <li><%= link_to 'Зарегестрироваться', new_user_registration_path %></li>
+        <li><%= link_to t('app.sign_in'), new_user_session_path %></li><br>
+<!--        <li><%#= link_to t('app.register'), new_user_registration_path %></li>-->
       <% end %>
     </ul>
     <%= yield %>

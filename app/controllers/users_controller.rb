@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   def update
     if @user.update(user_params)
 
-      redirect_to @user, notice: 'User was successfully updated.'
+      redirect_to @user, notice: I18n.t('controllers.users.updated')
     else
       render :edit, status: :unprocessable_entity
     end
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
 
-    redirect_to users_url, notice: 'User was successfully destroyed.'
+    redirect_to users_url, notice: I18n.t('controllers.users.destroyed')
   end
 
   private
