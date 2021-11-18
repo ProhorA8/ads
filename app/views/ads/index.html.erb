@@ -1,7 +1,6 @@
 <div class="user-ads buffer-both">
   <div class="ads-list">
-    <% @ads.each do |ad| %>
-      <%= render partial: 'ad', object: ad %>
-    <% end %>
+    <!-- Рендерим сразу массив объявлений, каждый в паршиале 'ads/ad' -->
+    <%= render partial: 'ads/ad', collection: @ads, object: @user_ad %>
   </div>
 </div>

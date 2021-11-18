@@ -1,43 +1,27 @@
-<!--Форма создания пользователя-->
-<%= form_with(model: user, local: true) do |form| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-      <ul>
-        <% user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<!--Форма пользователя-->
+<%= form_for @user, html: {multipart: true} do |f| %>
+  <%= render partial: 'partials/form_errors', locals: {model: @user} %>
 
   <div class="field">
-    <%= form.label :name, class: 'form-label' %>
-    <%= form.text_field :name %>
+    <%= f.label :name, class: 'form-label' %>
+    <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= form.label :username, class: 'form-label' %>
-    <%= form.text_field :username %>
+    <%= f.label :username, class: 'form-label' %>
+    <%= f.text_field :username %>
   </div>
   <div class="field">
-    <%= form.label :email, class: 'form-label' %>
-    <%= form.text_field :email %>
+    <%= f.label :email, class: 'form-label' %>
+    <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= form.label :role, class: 'form-label' %>
-    <%= form.select(:role, options_for_select([['admin'], ['user'], ['guest']]), {include_blank: true}) %>
-  </div>
-  <div class="field">
-    <%= form.label :password, class: 'form-label' %>
-    <%= form.text_field :password %>
-  </div>
-  <div class="field">
-    <%= form.label :password_confirmation, class: 'form-label' %>
-    <%= form.text_field :password_confirmation %>
+    <%= f.label :role, class: 'form-label' %>
+    <%= f.select(:role, options_for_select([['admin'], ['user'], ['guest']]), {include_blank: true}) %>
   </div>
   <div class="actions buffer-both">
-    <%= form.submit 'Создать', class: 'button button-dark button-small' %>
+    <%= f.submit 'Сохранить', class: 'button button-dark button-small' %>
     или
-    <%= link_to 'Назад', @user %>
+    <%= link_to 'Назад', @user %><br>
+    <p class="buffer-top"><%= link_to 'Удалить профиль', @user, method: :delete, data: { confirm: 'Вы уверены?' } %></p>
   </div>
 <% end %>

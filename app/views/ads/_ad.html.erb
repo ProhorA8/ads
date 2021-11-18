@@ -4,11 +4,13 @@
     <div class="ad-text text-lead">
       <%= link_to ad.title, ad_path(ad)  %>
     </div>
-  </div>
 
-    <div class="ad-actions">
-      <%= link_to 'Редактировать', edit_ad_path(ad) %>
-      <%= link_to 'Удалить', ad_path(ad),
-                  method: :delete, data: {confirm: 'Точно удалить объявление?'} %>
+    <div class="text-small">
+      <%= ad.created_at.strftime('%Y-%m-%d %H:%M:%S') %>
     </div>
+
+    <div class="user-statistics">
+      <%= link_to "@#{ad.user.username}", user_path(ad.user) %>
+    </div>
+  </div>
 </div>

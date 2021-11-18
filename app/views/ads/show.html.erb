@@ -1,6 +1,11 @@
 <div class="text-lead user-ads buffer-both">
   <%= @ad.title %>
 </div>
-<div class="user-statistics">
-  @<%= link_to @user_ad.username, user_path(@user_ad) %>
-</div>
+
+<% if current_user_can_edit?(@ad) %>
+  <div class="ad-actions">
+    <%= link_to 'Редактировать', edit_ad_path(@ad) %>
+    <%= link_to 'Удалить', ad_path(@ad),
+                method: :delete, data: {confirm: 'Точно удалить объявление?'} %>
+  </div>
+<% end %>

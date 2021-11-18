@@ -1,43 +1,27 @@
-require 'openssl'
-
 class User < ApplicationRecord
-  DIGEST = OpenSSL::Digest::SHA256.new
-  USERNAME_REGEXP = /\A\w+\z/.freeze
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  # :database_authenticatable предполагает, что в БД есть информация о том, какой у пользователя password_hash.
+  # :registerable означает, что Девайз берётся за управление вьюхами и контроллерами,
+  # которые отвечают за регистрацию на сайте.
+  # :rememberable запоминает пользователя даже после того, как тот закрыл браузер и вернулся через какое-то время.
+  # :recoverable управляет вьюхами и контроллерами, если пользователь захотел восстановить доступ к аккаунту.
+  # Сюда же входит функция отправки писем с ссылкой для восстановления пароля.
+  # :confirmable требует, чтобы юзер подтвердил почту после регистрации.
+  # :trackable хранит информацию в БД о последнем посещении, количестве заходов, ip пользователя.
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
 
   has_many :ads, dependent: :destroy
 
-  validates :username, :email, presence: true, uniqueness: true
-  validates :username, length: { maximum: 40 }, format: { with: USERNAME_REGEXP }
-  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
-  # validates :password, presence: true, on: :create
-  # validates_confirmation_of :password
+  validates :username, presence: true, length: { maximum: 40 }
 
-  # before_save :encrypt_password
-
-  def self.authenticate(email, password)
-    user = find_by(email: email&.downcase)
-
-    return nil unless user.present?
-
-    hashed_password = User.hash_to_string(OpenSSL::PKCS5.pbkdf2_hmac(password,
-                                                                     user.password_salt,
-                                                                     ITERATIONS,
-                                                                     DIGEST.length,
-                                                                     DIGEST))
-
-    return user if user.password_hash == hashed_password
-
-    nil
-  end
-
-  def self.hash_to_string(password_hash)
-    password_hash.unpack('H*')[0]
-  end
+  before_validation :set_username, on: :create
 
   private
 
-  def downcase_params
-    username&.downcase!
-    email&.downcase!
+  # Задаем юзеру случайное имя потому что в форме devise это поле не отображается
+  def set_username
+    self.username = "Пользователь №#{rand(777)}" if name.blank?
   end
 end

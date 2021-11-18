@@ -13,34 +13,26 @@
       <td><%= @user.username %></td>
       <td><%= @user.email %></td>
       <td><%= @user.role %></td>
-      <td class="button"><%= link_to 'На главную', users_path %></td>
-      <td class="button"><%= link_to 'Редактировать', edit_user_path(@user) %></td>
-      <td class="button"><%= link_to 'Удалить', @user, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+      <td class="button"><%= link_to 'На главную', root_path %></td>
+      <% if @user == current_user %>
+        <td class="button"><%= link_to 'Редактировать', edit_user_path(@user) %></td>
+      <% end %>
     </tr>
   </tbody>
 </table><br>
 
-<!--форма создания объявления пользователя-->
-<div>
-  <%= form_for @new_ad do |f| %>
-    <%= f.hidden_field :user_id %>
-
-    <div class="form-field">
-      <%= f.label 'Название для вашего объявления', class: 'form-label' %>
-      <%= f.text_area :title%>
-    </div>
-
-    <div class="">
-      <%= submit_tag 'Создать', class: 'button button-dark button-small' %>
-    </div>
-  <% end %>
+<!--ссылка создания объявления пользователя-->
+<div class="buffer-both">
+  <%= link_to 'Создать объявление', new_ad_path, class: 'btn btn-success' %>
 </div>
 
 <!--вывод всех объявлений пользователя-->
-<div class="user-ads buffer-both">
-  <div class="ads-list">
-    <% @ads.each do |ad| %>
-      <%= render partial: 'ads/ad', object: ad %>
-    <% end %>
+<% if @user.ads.any? %>
+  <div class="user-ads buffer-both">
+    <div class="ads-list">
+      <%= render partial: 'ads/ad', collection: @user.ads %>
+    </div>
   </div>
-</div>
+<% else %>
+  <p class="buffer-top">Пользователь пока не создал объявление</p>
+<% end %>
