@@ -2,6 +2,10 @@
   <%= @ad.title %>
 </div>
 
+<div class="ad ads-list buffer-both">
+  <%= @ad.body %>
+</div>
+
 <% if current_user_can_edit?(@ad) %>
   <div class="ad-actions">
     <%= link_to t('views.ads.show.edit'), edit_ad_path(@ad) %>
