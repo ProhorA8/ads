@@ -65,6 +65,13 @@ ru:
         info: 'Пользователь пока не создал объявление'
         root: 'На главную'
         edit: 'Редактировать'
+    # Для пагинации
+    pagination:
+      first: "&laquo; Первая"
+      last: "Последняя &raquo;"
+      previous: "&lsaquo; Предыдущая"
+      next: "Следующая &rsaquo;"
+      truncate: "&hellip;"
 
   # Перевод названия приложения
   app:

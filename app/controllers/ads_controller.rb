@@ -5,7 +5,8 @@ class AdsController < ApplicationController
   before_action :set_current_user_ad, only: %i[edit update destroy]
 
   def index
-    @ads = Ad.all
+    # kaminari – .page(params[:page])
+    @ads = Ad.order(created_at: :desc).page(params[:page])
   end
 
   def show; end

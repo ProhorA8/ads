@@ -1,6 +1,12 @@
 <div class="user-ads buffer-both">
   <div class="ads-list">
+
     <!-- Рендерим сразу массив объявлений, каждый в паршиале 'ads/ad' -->
     <%= render partial: 'ads/ad', collection: @ads, object: @user_ad %>
   </div>
+</div>
+
+<!--пагинация-->
+<div class="ad-content text-center">
+  <%= paginate @ads %>
 </div>

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -15,6 +13,8 @@ gem 'devise'
 gem 'devise-i18n'
 # Решение для интернационализации и локализации Ruby
 gem 'i18n'
+# Помощник нумерации страниц
+gem 'kaminari'
 # Для создания снимков экрана, получения реальных тестовых данных и заполнения вашей базы данных
 gem 'faker'
 # Предоставляет набор помощников для авторизации
