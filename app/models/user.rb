@@ -15,7 +15,6 @@ class User < ApplicationRecord
   has_many :ads, dependent: :destroy
 
   validates :username, presence: true, length: { maximum: 40 }
-  validates :body, presence: true
 
   before_validation :set_username, on: :create
 

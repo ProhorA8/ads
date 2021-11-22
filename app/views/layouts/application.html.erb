@@ -2,6 +2,8 @@
 <html>
   <head>
     <title>Ads</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -21,6 +23,14 @@
 <!--        <li><%#= link_to t('app.register'), new_user_registration_path %></li>-->
       <% end %>
     </ul>
+
+<!--        Показ уведомлений-->
+    <% if flash.any? %>
+        <% flash.each do |name, message| %>
+          <%= content_tag :p, message, class: "flash-#{name}" %>
+        <% end %>
+    <% end %>
+
     <%= yield %>
   </div>
   </body>

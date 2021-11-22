@@ -38,7 +38,22 @@ a {
   padding: 10px;
 }
 
+.flash-location,
+.flash-notice,
 .flash-alert {
-  font-size: 20px;
-  color: #dc554f;
+  display: inline-block;
+  border-radius: 3px;
+  margin: 20px 20px 20px 0;
+  padding: 10px;
+}
+
+.flash-notice {
+  font-size: 16px;
+  background: #c9f19e;
+
+}
+
+.flash-alert {
+  font-size: 16px;
+  background: #dc554f;
 }

@@ -4,4 +4,5 @@ Rails.application.routes.draw do
 
   resources :users
   resources :ads
+  resources :tags, param: :name, only: :show
 end

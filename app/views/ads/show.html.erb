@@ -6,10 +6,19 @@
   <%= @ad.body %>
 </div>
 
+<div>
+  <%= @ad.life_cycle %>
+</div>
+
 <% if current_user_can_edit?(@ad) %>
-  <div class="ad-actions">
-    <%= link_to t('views.ads.show.edit'), edit_ad_path(@ad) %>
-    <%= link_to t('views.ads.show.delete'), ad_path(@ad),
-                method: :delete, data: {confirm: t('views.ads.show.confirm_delete')} %>
+  <div class="display-inline">
+    <div class="content-left">
+      <%= @ad.tags.map { |h| link_to "##{h.name}", tag_path(h) }.join(', ').html_safe %>
+    </div>
+    <div class="content-right">
+      <%= link_to fa_icon('pencil'), edit_ad_path(@ad) %>
+      <%= link_to fa_icon('trash-o'), ad_path(@ad),
+             method: :delete, data: {confirm: t('views.ads.show.confirm_delete')} %>
+    </div>
   </div>
 <% end %>

@@ -13,10 +13,10 @@
       <td><%= @user.username %></td>
       <td><%= @user.email %></td>
       <td><%= @user.role %></td>
-      <td class="button"><%= link_to t('views.users.show.root'), root_path %></td>
       <% if @user == current_user %>
-        <td class="button"><%= link_to t('views.users.show.edit'), edit_user_path(@user) %></td>
-      <% end %>
+        <td class="button"><%= link_to fa_icon('pencil'), edit_user_path(@user) %></td>
+    <% end %>
+      <td class="button"><%= link_to t('views.users.show.root'), root_path %></td>
     </tr>
   </tbody>
 </table><br>
@@ -38,3 +38,5 @@
     <%= t('views.users.show.info') %>
   </p>
 <% end %>
+
+

@@ -1,0 +1,7 @@
+<!--рендерим все объявления с тегом-->
+<div class="buffer-both">
+  <h1><%= "Список объявлений для тега #{@tag.name}" %></h1>
+  <% @ads.each do |ad| %>
+    <%= render partial: 'ads/ad', object: ad %>
+  <% end %>
+</div>

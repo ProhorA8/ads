@@ -5,6 +5,7 @@ class AdsController < ApplicationController
   before_action :set_current_user_ad, only: %i[edit update destroy]
 
   def index
+    @tags = Tag.with_ads #
     # kaminari – .page(params[:page])
     @ads = Ad.order(created_at: :desc).page(params[:page])
   end
@@ -46,7 +47,7 @@ class AdsController < ApplicationController
   private
 
   def set_ad
-    @ad = Ad.find(params[:id])
+    @ad ||= Ad.find(params[:id])
   end
 
   def set_current_user_ad
@@ -54,6 +55,6 @@ class AdsController < ApplicationController
   end
 
   def ad_params
-    params.require(:ad).permit(:title, :body)
+    params.require(:ad).permit(:title, :body, :life_cycle, :type_ad)
   end
 end

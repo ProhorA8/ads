@@ -24,6 +24,7 @@
  *= require users
  *= require ads
  *= require table
+ *= require tags
  *
  *= require_self
  */

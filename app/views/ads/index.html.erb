@@ -1,6 +1,14 @@
-<div class="user-ads buffer-both">
-  <div class="ads-list">
+<!--все теги объявлений-->
+<div class="hashtags-cloud">
+  <div id="tags">
+    <% @tags.each do |tag| %>
+      <%= link_to "##{tag.name}", tag_path(tag), rel: rand(20)  %>
+    <% end %>
+  </div>
+</div>
 
+<div class="user-ads">
+  <div class="ads-list">
     <!-- Рендерим сразу массив объявлений, каждый в паршиале 'ads/ad' -->
     <%= render partial: 'ads/ad', collection: @ads, object: @user_ad %>
   </div>
