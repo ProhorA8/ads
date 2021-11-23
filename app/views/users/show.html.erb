@@ -1,5 +1,5 @@
 <!--Страница пользователя-->
-<table>
+<table class="buffer-top">
   <thead>
   <tr>
     <th><%= t('views.users.show.name') %></th>
@@ -28,6 +28,12 @@
     <%= link_to t('views.users.show.create_ad'), new_ad_path, class: 'btn btn-success' %>
   <% end %>
 </div>
+
+<% if @user == current_user %>
+  <div class="buffer-both">
+    <%= t('views.users.show.my_ads') %>
+  </div>
+<% end %>
 
 <!--Вывод всех объявлений пользователя-->
 <% if @user.ads.any? %>
