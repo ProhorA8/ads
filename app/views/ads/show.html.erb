@@ -1,11 +1,36 @@
 <!--Страница объявления-->
-<div class="text-lead user-ads buffer-both">
-  <%= @ad.title %>
+<div class="ad-info-inner row">
+  <div class="col-md-6">
+    <div class="col-md-12">
+      <div class="text-lead user-ads buffer-both">
+        <%= @ad.title %>
+      </div>
+
+      <div class="ad ads-list buffer-both">
+        <%= @ad.body %>
+      </div>
+
+      <%# Выводим произвольную фотку в качестве фона для шапки объявления %>
+      <%= content_tag 'div', '', class: 'ad-background',
+                      style: "background-image: url(#{ad_photo(@ad)})" %>
+    </div>
+  </div>
 </div>
 
-<div class="ad ads-list buffer-both">
-  <%= @ad.body %>
+<div class="row">
+  <div class="col-md-8">
+    <%# Выводим все фотографии объявления %>
+    <div class="ad-photos-gallery">
+      <%= render partial: 'photos/photo', collection: @ad.photos.except(@new_photo) %>
+    </div>
+
+    <%# Рисуем форму для добавления новой фотографии %>
+    <div class="buffer-both">
+      <%= render partial: 'photos/form', locals: {photo: @new_photo || @ad.photos.build} %>
+    </div>
+  </div>
 </div>
+
 
 <% if current_user_can_edit?(@ad) %>
   <div>

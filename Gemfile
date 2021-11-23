@@ -5,6 +5,8 @@ ruby '2.3.1'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+# Гем для загрузки картинок
+gem 'carrierwave'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Аутентификации для Rails, основанное на Warden
@@ -17,6 +19,8 @@ gem 'i18n'
 gem 'kaminari'
 # Для создания снимков экрана, получения реальных тестовых данных и заполнения вашей базы данных
 gem 'faker'
+# Гем для работы carrierwave с хранилищем Amazon S3
+gem 'fog-aws'
 # Предоставляет набор помощников для авторизации
 gem 'pundit'
 # Шаблонизатор для HTML
@@ -28,6 +32,8 @@ gem 'puma', '~> 3.11'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.6'
 gem 'rails-i18n'
+# Гем для обработки картинок
+gem 'rmagick'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use sqlite3 as the database for Active Record
