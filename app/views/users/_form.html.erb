@@ -15,12 +15,11 @@
   </div>
   <div class="field">
     <%= f.label :role, class: 'form-label' %>
-    <%= f.select(:role, options_for_select([['admin'], ['user'], ['guest']], @user.role), {include_blank: true}) %>
+    <%= f.select(:role, options_for_select([['admin'], ['user']], @user.role), {include_blank: true}) %>
   </div>
   <div class="actions buffer-both">
     <%= f.submit t('views.users.form.save'), class: 'button button-dark button-small' %>
     <%= t('views.users.form.or') %>
     <%= link_to t('views.users.form.back'), @user %><br>
-<!--    <p class="buffer-top"><%#= link_to t('views.users.form.delete'), @user, method: :delete, data: { confirm: t('views.users.form.confirm_delete') } %></p>-->
   </div>
 <% end %>

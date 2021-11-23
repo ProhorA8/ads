@@ -1,11 +1,15 @@
 class UsersController < ApplicationController
   # Встроенный в девайз фильтр - посылает незалогиненного пользователя
-  before_action :authenticate_user!, except: [:show]
+  before_action :authenticate_user!, except: :show
   # Задаем объект @user для шаблонов и экшенов
-  before_action :set_current_user, except: [:show]
+  before_action :set_current_user, except: :show
+
+  # Ставим предохранитель для действия show
+  after_action :verify_authorized, only: :show
 
   def show
     @user = User.find(params[:id])
+    authorize @user
   end
 
   def edit; end

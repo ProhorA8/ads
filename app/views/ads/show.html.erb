@@ -7,11 +7,11 @@
   <%= @ad.body %>
 </div>
 
-<div>
-  <%= @ad.life_cycle %>
-</div>
-
 <% if current_user_can_edit?(@ad) %>
+  <div>
+    <%= @ad.life_cycle %>
+  </div>
+
   <div class="display-inline">
     <div class="content-left">
       <%= @ad.tags.map { |h| link_to "##{h.name}", tag_path(h) }.join(', ').html_safe %>

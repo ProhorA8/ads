@@ -88,3 +88,6 @@ ru:
     sign_out: 'Выйти'
     sign_in: 'Войти'
     register: 'Зарегистрироваться'
+
+  pundit:
+    not_authorized: 'Вам это не разрешено!'

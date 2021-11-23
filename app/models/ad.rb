@@ -13,7 +13,7 @@ class Ad < ApplicationRecord
 
   def update_tags
     tag_ads.clear # чистим связи
-    "#{type_ad}".downcase.scan(Tag::TAG_REGEX).uniq.each do |tag|
+    type_ad.to_s.downcase.scan(Tag::TAG_REGEX).uniq.each do |tag|
       tags << Tag.find_or_create_by(name: tag.delete('#'))
     end
   end

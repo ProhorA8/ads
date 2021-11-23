@@ -22,9 +22,11 @@
   </tbody>
 </table><br>
 
-<!--Ссылка создания объявления пользователя-->
+<!--Ссылка создания объявления пользователя с проверкой через pundit-->
 <div class="buffer-both">
-  <%= link_to t('views.users.show.create_ad'), new_ad_path, class: 'btn btn-success' %>
+  <% if policy(Ad).create? %>
+    <%= link_to t('views.users.show.create_ad'), new_ad_path, class: 'btn btn-success' %>
+  <% end %>
 </div>
 
 <!--Вывод всех объявлений пользователя-->

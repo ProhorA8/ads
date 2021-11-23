@@ -7,6 +7,7 @@ en:
       previous: "&lsaquo; Prev"
       next: "Next &rsaquo;"
       truncate: "&hellip;"
+
   helpers:
     page_entries_info:
       one_page:
@@ -16,3 +17,6 @@ en:
           other: "Displaying <b>all %{count}</b> %{entry_name}"
       more_pages:
         display_entries: "Displaying %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> of <b>%{total}</b> in total"
+
+  pundit:
+    not_authorized: 'This is not allowed for you!'

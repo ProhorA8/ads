@@ -47,9 +47,12 @@ group :development, :test do
   # Консоль разработчика среды выполнения
   gem 'pry'
   # Среда тестирования
+  gem 'rspec'
   gem 'rspec-rails'
   # Статический анализатор кода Ruby
   gem 'rubocop'
+  # Ускоряет написание тестов
+  gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
 end
 
 group :development do
