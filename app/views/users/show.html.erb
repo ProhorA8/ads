@@ -1,3 +1,4 @@
+<!--Страница пользователя-->
 <table>
   <thead>
   <tr>
@@ -21,12 +22,12 @@
   </tbody>
 </table><br>
 
-<!--ссылка создания объявления пользователя-->
+<!--Ссылка создания объявления пользователя-->
 <div class="buffer-both">
   <%= link_to t('views.users.show.create_ad'), new_ad_path, class: 'btn btn-success' %>
 </div>
 
-<!--вывод всех объявлений пользователя-->
+<!--Вывод всех объявлений пользователя-->
 <% if @user.ads.any? %>
   <div class="user-ads buffer-both">
     <div class="ads-list">

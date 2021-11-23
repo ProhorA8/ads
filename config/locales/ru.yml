@@ -16,7 +16,7 @@ ru:
         password: 'Пароль'
         password_confirmation: 'Подтверждение пароля'
       ad:
-        title: 'Название'
+        title: 'Заголовок'
         body: 'Описание'
         life_cycle: 'Статус'
         type_ad: 'Тэг'
@@ -35,8 +35,9 @@ ru:
   views:
     ads:
       form:
-        title: 'Название'
+        placeholder_info: 'Подробно опишите товар или услугу'
         save: 'Сохранить'
+        or: 'или'
         back: 'Вернуться'
       edit:
         edit_ad: 'Редактировать объявление'
@@ -49,9 +50,13 @@ ru:
     partials:
       form_errors:
         info: "В вашей форме %{count} ошибок"
+    tags:
+      show:
+        title: 'Список объявлений для тега %{tag_name}'
     users:
       form:
         save: 'Сохранить'
+        or: 'или'
         back: 'Назад'
         delete: 'Удалить профиль'
         confirm_delete: 'Вы уверены?'
@@ -75,8 +80,9 @@ ru:
       next: "Следующая &rsaquo;"
       truncate: "&hellip;"
 
-  # Перевод названия приложения
+  # Перевод для стартовой страницы
   app:
+    tab_title: 'Ads'
     name: 'Объявления'
     profile: 'Профиль'
     sign_out: 'Выйти'

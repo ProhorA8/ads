@@ -10,12 +10,12 @@
 
     <div class="form-field">
       <%= f.label :body, class: 'form-label' %>
-      <%= f.text_area :body, class: 'form-textarea' %>
+      <%= f.text_area :body, class: 'form-textarea', placeholder: t('views.ads.form.placeholder_info') %>
     </div>
 
     <div class="form-field">
       <%= f.label :type_ad, class: 'form-label' %>
-      <%= f.text_field :type_ad %>
+      <%= f.text_field :type_ad, placeholder: '#tag' %>
     </div>
 
     <div class="form-field">
@@ -25,7 +25,7 @@
 
     <div class="form-action buffer-both">
       <%= f.submit t('views.ads.form.save'), class: 'button button-dark button-small' %>
-      или
+      <%= t('views.ads.form.or') %>
       <%= link_to t('views.ads.form.back'), :back %>
     </div>
   <% end %>

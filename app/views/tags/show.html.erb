@@ -1,6 +1,9 @@
-<!--рендерим все объявления с тегом-->
+<!--Рендерим все объявления с тегом-->
 <div class="buffer-both">
-  <h1><%= "Список объявлений для тега #{@tag.name}" %></h1>
+  <div class="title-medium">
+    <%= t('views.tags.show.title', tag_name: @tag.name) %>
+  </div>
+
   <% @ads.each do |ad| %>
     <%= render partial: 'ads/ad', object: ad %>
   <% end %>

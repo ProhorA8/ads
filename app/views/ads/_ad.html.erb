@@ -13,7 +13,7 @@
       <%= link_to "@#{ad.user.username}", user_path(ad.user) %>
     </div>
 
-<!--    ссылка тег-->
+<!--    Ссылка тег-->
     <div class="ad-hashtags">
       <%= ad.tags.map { |h| link_to "##{h.name}", tag_path(h) }.join(', ').html_safe %>
     </div>
