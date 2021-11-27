@@ -1,20 +1,20 @@
-<!--Паршал отображения объявлений-->
-<div class="ad">
+<%# Паршал отображения объявлений %>
+<div class="ad shadow p-3 mb-5 bg-white rounded">
   <div class="ad-content">
-    <div class="ad-text text-lead">
-      <%= link_to ad.title, ad_path(ad)  %>
+    <div class="ad-text">
+      <%= link_to ad.title, ad_path(ad) %>
     </div>
 
-    <div class="text-small">
+    <div class="text-muted">
       <%= l(ad.created_at, format: :short) %>
     </div>
 
-    <div class="user-statistics">
+    <div class="ad-statistics">
       <%= link_to "@#{ad.user.username}", user_path(ad.user) %>
     </div>
 
-<!--    Ссылка тег-->
-    <div class="ad-hashtags">
+    <%# Ссылка тег %>
+    <div class="text-muted">
       <%= ad.tags.map { |h| link_to "##{h.name}", tag_path(h) }.join(', ').html_safe %>
     </div>
   </div>

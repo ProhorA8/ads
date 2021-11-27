@@ -1,20 +1,18 @@
-<!--Все теги объявлений-->
-<div class="hashtags-cloud">
-  <div id="tags">
-    <% @tags.each do |tag| %>
-      <%= link_to "##{tag.name}", tag_path(tag), rel: rand(20)  %>
-    <% end %>
-  </div>
+<%# Все теги объявлений %>
+<div class="text-center text-md buffer-bottom">
+  <% @tags.each do |tag| %>
+    <%= link_to "##{tag.name}", tag_path(tag), rel: rand(20) %>
+  <% end %>
 </div>
 
-<div class="user-ads">
+<div class="column-1-6">
   <div class="ads-list">
-    <!-- Рендерим сразу массив объявлений, каждый в паршиале 'ads/ad' -->
+    <%# Рендерим сразу массив объявлений, каждый в паршиале 'ads/ad' %>
     <%= render partial: 'ads/ad', collection: @ads, object: @user_ad %>
   </div>
 </div>
 
-<!--Пагинация-->
-<div class="ad-content text-center">
+<%# Пагинация %>
+<div class="text-center">
   <%= paginate @ads %>
 </div>

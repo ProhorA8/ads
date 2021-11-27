@@ -27,6 +27,8 @@ gem 'pundit'
 gem 'haml'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
+# Предоставляет jQuery и драйвер jQuery-ujs
+gem 'jquery-rails'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -40,6 +42,8 @@ gem 'sass-rails', '~> 5.0'
 gem 'sqlite3'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
+# Подключаем Bootstrap
+gem 'twitter-bootstrap-rails'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 # Use Uglifier as compressor for JavaScript assets

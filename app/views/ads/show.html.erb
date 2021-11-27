@@ -1,50 +1,35 @@
 <!--Страница объявления-->
-<div class="ad-info-inner row">
-  <div class="col-md-6">
-    <div class="col-md-12">
-      <div class="text-lead user-ads buffer-both">
-        <%= @ad.title %>
+<div class="row ">
+  <div class="ad ad-content col-md-12 shadow">
+    <div class="text-lg">
+      <%= @ad.title %>
+    </div>
+
+    <div class="text-md buffer-both">
+      <%= @ad.body %>
+    </div>
+
+    <div class="col-md-6">
+      <%# Все фотографии объявления %>
+      <% @ad.photos.each do |photo| %>
+        <%= link_to image_tag(photo.photo.thumb.url), photo.photo.url if photo.photo? %>
+      <% end %>
+    </div>
+
+    <% if current_user_can_edit?(@ad) %>
+      <%= link_to t('views.ads.show.edit'), edit_ad_path(@ad), class: 'btn btn-warning' %>
+      <%= link_to t('views.ads.show.delete'), ad_path(@ad),
+    method: :delete, data: {confirm: t('views.ads.show.confirm_delete')}, class: 'btn btn-danger' %>
+
+      <div class="buffer-top">
+        <%= @ad.life_cycle %>
       </div>
 
-      <div class="ad ads-list buffer-both">
-        <%= @ad.body %>
+      <div class="buffer-both">
+        <%= @ad.tags.map { |h| link_to "##{h.name}", tag_path(h) }.join(', ').html_safe %>
       </div>
+    <% end %>
 
-      <%# Выводим произвольную фотку в качестве фона для шапки объявления %>
-      <%= content_tag 'div', '', class: 'ad-background',
-                      style: "background-image: url(#{ad_photo(@ad)})" %>
-    </div>
+    <%= link_to t('views.ads.show.back'), :back %>
   </div>
 </div>
-
-<div class="row">
-  <div class="col-md-8">
-    <%# Выводим все фотографии объявления %>
-    <div class="ad-photos-gallery">
-      <%= render partial: 'photos/photo', collection: @ad.photos.except(@new_photo) %>
-    </div>
-
-    <%# Рисуем форму для добавления новой фотографии %>
-    <div class="buffer-both">
-      <%= render partial: 'photos/form', locals: {photo: @new_photo || @ad.photos.build} %>
-    </div>
-  </div>
-</div>
-
-
-<% if current_user_can_edit?(@ad) %>
-  <div>
-    <%= @ad.life_cycle %>
-  </div>
-
-  <div class="display-inline">
-    <div class="content-left">
-      <%= @ad.tags.map { |h| link_to "##{h.name}", tag_path(h) }.join(', ').html_safe %>
-    </div>
-    <div class="content-right">
-      <%= link_to fa_icon('pencil'), edit_ad_path(@ad) %>
-      <%= link_to fa_icon('trash-o'), ad_path(@ad),
-             method: :delete, data: {confirm: t('views.ads.show.confirm_delete')} %>
-    </div>
-  </div>
-<% end %>

@@ -1,43 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title><%= t('app.tab_title') %></title>
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : t('app.tab_title') %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"
-            type="text/javascript"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js" type="text/javascript"></script>
     <![endif]-->
   </head>
 
   <body>
-  <div class="content">
-    <h1 class="title-large text-center"><%= link_to t('app.name'), root_path  %></h1>
-    <ul>
-      <% if user_signed_in? %>
-        <li><%= link_to t('app.profile'), current_user %></li><br>
-        <li><%= link_to t('app.sign_out'), destroy_user_session_path, method: :delete %></li>
-      <% else %>
-        <li><%= link_to t('app.sign_in'), new_user_session_path %></li><br>
-<!--        <li><%#= link_to t('app.register'), new_user_registration_path %></li>-->
-      <% end %>
-    </ul>
+    <div class="navbar navbar-default navbar-static-top justify-content-between">
+      <div class="container">
+        <a class="navbar-brand" href="/">Ads</a>
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+          <ul class="nav navbar-nav">
+            <% if user_signed_in? %>
+              <li><%= link_to t('app.profile'), current_user %></li>
+              <li><%= link_to t('app.sign_out'), destroy_user_session_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to t('app.sign_in'), new_user_session_path %></li>
+            <% end %>
+          </ul>
+        </div>
+        <form class="form-inline buffer-bottom">
+          <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
 
-<!--        Показ уведомлений-->
-    <% if flash.any? %>
-        <% flash.each do |name, message| %>
-          <%= content_tag :p, message, class: "flash-#{name}" %>
-        <% end %>
-    <% end %>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <%= bootstrap_flash %>
+          <%= yield %>
+        </div>
+      </div>
 
-    <%= yield %>
-  </div>
+      <footer class="text-center buffer-top">
+        <p>&copy; Company 2021</p>
+      </footer>
+    </div>
   </body>
 </html>

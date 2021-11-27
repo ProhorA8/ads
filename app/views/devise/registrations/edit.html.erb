@@ -1,0 +1,45 @@
+<h2><%= t('devise.registrations.edit_profile') %></h2>
+
+<div class="row">
+  <div class="col-md-4 buffer-top">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render 'devise/shared/error_messages', resource: resource %>
+
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, class: 'form-control', autofocus: true, autocomplete: 'email' %>
+      </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div><%= t('devise.registrations.waiting_confirmation', unconfirmed_email: resource.unconfirmed_email) %></div>
+      <% end %>
+
+      <div class="field">
+        <%= f.label :password %> <i>(<%= t('devise.registrations.leave_blank_change') %>)</i><br />
+        <%= f.password_field :password, class: 'form-control', autocomplete: 'new-password' %>
+        <% if @minimum_password_length %><br />
+        <% end %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation %>
+        <em>(<%= t('devise.registrations.characters_minimum', password_length: @minimum_password_length) %>)</em><br />
+        <%= f.password_field :password_confirmation, class: 'form-control', autocomplete: 'new-password' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :current_password %> <i>(<%= t('devise.registrations.current_password') %>)</i><br />
+        <%= f.password_field :current_password, class: 'form-control', autocomplete: 'current-password' %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit t('devise.registrations.update'), class: 'btn btn-primary buffer-top' %>
+      </div>
+    <% end %>
+
+    <h3><%= t('devise.registrations.cancel_my_account') %></h3>
+    <p><%= button_to t('devise.registrations.btn_cancel_my_account'), registration_path(resource_name), class: 'btn btn-danger', data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+    <%= link_to t('devise.registrations.back'), :back %>
+  </div>
+</div>

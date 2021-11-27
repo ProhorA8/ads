@@ -1,0 +1,22 @@
+<h2><%= t('devise.confirmations.resend_instructions') %></h2>
+
+<div class="row">
+  <div class="col-md-4 buffer-top">
+    <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+      <%= render 'devise/shared/error_messages', resource: resource %>
+
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, class: 'form-control', autofocus: true, autocomplete: 'email', value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit t('devise.confirmations.resend'), class: 'btn btn-primary buffer-top' %>
+      </div>
+    <% end %>
+
+    <div class="buffer-top">
+      <%= render 'devise/shared/links' %>
+    </div>
+  </div>
+</div>

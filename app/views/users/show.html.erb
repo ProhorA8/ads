@@ -1,5 +1,5 @@
-<!--Страница пользователя-->
-<table class="buffer-top">
+<%# Страница пользователя %>
+<table class="table">
   <thead>
   <tr>
     <th><%= t('views.users.show.name') %></th>
@@ -14,38 +14,31 @@
       <td><%= @user.username %></td>
       <td><%= @user.email %></td>
       <td><%= @user.role %></td>
-      <% if @user == current_user %>
-        <td class="button"><%= link_to fa_icon('pencil'), edit_user_path(@user) %></td>
-    <% end %>
-      <td class="button"><%= link_to t('views.users.show.root'), root_path %></td>
     </tr>
   </tbody>
 </table><br>
 
-<!--Ссылка создания объявления пользователя с проверкой через pundit-->
-<div class="buffer-both">
-  <% if policy(Ad).create? %>
-    <%= link_to t('views.users.show.create_ad'), new_ad_path, class: 'btn btn-success' %>
+<% if @user == current_user %>
+    <%= link_to t('views.users.show.edit_user'), edit_user_path(@user), class: 'btn btn-default' %>
+<% end %>
+  <%= link_to t('views.users.show.root'), root_path, class: 'btn btn-default' %><br>
+
+<%# Ссылка создания объявления пользователя с проверкой через pundit %>
+<%# if policy(Ad).create? %>
+  <%= link_to t('views.users.show.create_ad'), new_ad_path, class: 'buffer-top btn btn-success' %>
+<%# end %>
+
+<div class="text-lg buffer-both">
+  <% if @user == current_user %>
+    <%= t('views.users.show.my_ads') %>
   <% end %>
 </div>
 
-<% if @user == current_user %>
-  <div class="buffer-both">
-    <%= t('views.users.show.my_ads') %>
-  </div>
-<% end %>
-
-<!--Вывод всех объявлений пользователя-->
+<%# Вывод всех объявлений пользователя %>
 <% if @user.ads.any? %>
-  <div class="user-ads buffer-both">
-    <div class="ads-list">
-      <%= render partial: 'ads/ad', collection: @user.ads %>
-    </div>
-  </div>
+  <%= render partial: 'ads/ad', collection: @user.ads, class: 'buffer-both' %>
 <% else %>
   <p class="buffer-top">
     <%= t('views.users.show.info') %>
   </p>
 <% end %>
-
-

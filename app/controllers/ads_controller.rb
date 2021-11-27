@@ -10,13 +10,13 @@ class AdsController < ApplicationController
   after_action :verify_policy_scoped, only: :index
 
   def index
-    @tags = Tag.with_ads #
+    @tags = Tag.with_ads
     # kaminari – .page(params[:page])
-    # @ads = Ad.order(created_at: :desc).page(params[:page])
     @ads = policy_scope(Ad.order(created_at: :desc).page(params[:page]))
   end
 
   def show
+    @new_photo = @ad.photos.build(params[:photo])
     # Pundit создает новый экземпляр AdPolicy.new(current_user, @ad)
     # и вызывает у него метод, аналогичный имени текущего экшена: show?
     # если метод политики вернет false — будет брошен эксепшен
@@ -49,7 +49,7 @@ class AdsController < ApplicationController
     authorize @ad
 
     if @ad.update(ad_params)
-      redirect_to user_path(@ad.user), notice: I18n.t('controllers.ads.updated')
+      redirect_to ad_path(@ad), notice: I18n.t('controllers.ads.updated')
     else
       render :edit, status: :unprocessable_entity
     end

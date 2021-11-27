@@ -10,9 +10,4 @@ class Photo < ApplicationRecord
 
   # Добавляем аплоадер фотографий, чтобы заработал carrierwave
   mount_uploader :photo, PhotoUploader
-
-  # Этот scope нужен нам, чтобы отделить реальные фотки от болваной
-  # Если мы вызовем persisted, то достаём из базы те фото у которых id не пустой
-  # см. ads_controller
-  scope :persisted, -> { where "id IS NOT NULL" }
 end

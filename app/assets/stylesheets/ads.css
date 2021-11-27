@@ -1,9 +1,7 @@
-.ads-list {
-  padding: 10px 0;
-}
-
 .ad {
   background: white;
+  border-radius: 10px 0;
+  box-shadow:3px 3px 10px #0c0c0c;
 }
 
 .ad-content {
@@ -11,21 +9,13 @@
 }
 
 .ad + .ad {
-  margin-top: 10px;
-}
-
-.ad-text,
-.ad-answer {
-  margin-bottom: 10px;
+  margin-top: 20px;
 }
 
 .ad-text {
+  margin-bottom: 10px;
+  font-size: 20px;
   color: #005a55;
-}
-
-.ad-date {
-  color: #a0a0a0;
-  font-size: 12px;
 }
 
 .ad-actions {
@@ -33,10 +23,6 @@
   border-top: 1px solid #D9E6E5;
   text-align: right;
   padding: 10px 15px;
-}
-
-.ad-actions a {
-  margin-left: 10px;
 }
 
 .ad-info {
@@ -64,18 +50,22 @@
   -ms-filter: blur(5px);
 }
 
-.ad-description * {
-  color: white;
+.ad-statistics {
+  padding-top: 10px;
+  margin-top: 10px;
+  border-top: 1px solid #D9E6E5;
+}
+body {
+  font-family: "Trebuchet MS", "Open Sans", sans-serif !important;
+  background: #b1b1b5;
 }
 
-.ad-description a {
-  color: #d0d0ff;
+a {
+  text-decoration: none;
+  color: #005a55;
 }
 
-.ad-description small {
-  color: #e0e0e0;
-}
-
-.ad-info-inner {
-  background:rgba(0, 0, 0, 0.4);
+a:hover {
+  text-decoration: none;
+  color: #013734;
 }

@@ -1,7 +1,11 @@
-<!--Страница редактирования пользователя-->
+<%# Страница редактирования пользователя %>
 <h1><%= t('views.users.edit.edit_user') %></h1>
 
-<%= render 'form' %><br>
+<div class="row">
+  <div class="col-md-6 buffer-top">
+    <%= render 'form' %><br>
+  </div>
+</div>
 
-<!--Ссылка на смену пароля текущего залогиненного юзера (этот путь генерит девайз)-->
+<%# Ссылка на смену пароля текущего залогиненного юзера (этот путь генерит девайз) %>
 <%= link_to t('views.users.edit.change_password'), edit_user_registration_path %>

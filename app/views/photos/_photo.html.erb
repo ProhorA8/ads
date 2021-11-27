@@ -1,4 +1,9 @@
-<%# Паршал для вывода отдельной фотографии %>
-<div class="event-photo buffer-both">
-  <%= link_to image_tag(photo.photo.thumb.url), photo.photo.url %>
+<%# Паршал для вывода отдельной фотографии, если она есть + ссылка на её удаление %>
+<div class="buffer-both">
+  <%= link_to image_tag(photo.photo.thumb.url), photo.photo.url if photo.photo?%>
+
+  <% if current_user_can_edit?(photo) %>
+    <%= link_to t('views.photos.delete'), ad_photo_path(photo.ad, photo),
+                method: :delete, data: {confirm: t('views.photos.confirm_delete')} %>
+  <% end %>
 </div>

@@ -45,7 +45,7 @@ ru:
         placeholder_info: 'Подробно опишите товар или услугу'
         save: 'Сохранить'
         or: 'или'
-        back: 'Вернуться'
+        back: 'Назад'
       edit:
         edit_ad: 'Редактировать объявление'
       new:
@@ -53,13 +53,18 @@ ru:
       show:
         edit: 'Редактировать'
         delete: 'Удалить'
+        back: 'Назад'
         confirm_delete: 'Точно удалить объявление?'
     partials:
       form_errors:
         info: "В вашей форме %{count} ошибок"
+    photos:
+      load: 'Загрузить'
+      delete: 'Удалить фото'
+      confirm_delete: 'Удалить фото?'
     tags:
       show:
-        title: 'Список объявлений для тега %{tag_name}'
+        title: 'Список объявлений для тега – %{tag_name}'
     users:
       form:
         save: 'Сохранить'
@@ -77,6 +82,7 @@ ru:
         role: 'Роль'
         create_ad: 'Создать объявление'
         info: 'Пользователь пока не создал объявление'
+        edit_user: 'Редактировать профиль'
         root: 'На главную'
         edit: 'Редактировать'
         my_ads: 'Мои объявления'
@@ -99,3 +105,38 @@ ru:
 
   pundit:
     not_authorized: 'Вам это не разрешено!'
+
+  devise:
+    confirmations:
+      resend_instructions: 'Отправить инструкции по подтверждению повторно'
+      resend: 'Отправить'
+    passwords:
+      change_your_password: 'Измените свой пароль'
+      change_my_password: 'Изменить пароль'
+      forgot_your_password: 'Забыли свой пароль?'
+      characters_minimum: 'минимум %{password_length} символов'
+      send_reset_password_instructions: 'Отправьте мне инструкции по сбросу пароля'
+    registrations:
+      edit_profile: 'Редактировать профиль'
+      waiting_confirmation: 'В настоящее время ожидает подтверждения для: %{unconfirmed_email}'
+      leave_blank_change: 'оставьте поле пустым, если не хотите его менять'
+      current_password: 'нам нужен ваш текущий пароль для подтверждения ваших изменений'
+      update: 'Обновить'
+      cancel_my_account: 'Удалить мою учетную запись?'
+      btn_cancel_my_account: 'Удалить'
+      registration: 'Регистрация'
+      characters_minimum: 'минимум %{password_length} символов'
+      sign_up: 'Зарегистрироваться'
+      back: 'Назад'
+    sessions:
+      new:
+        log_in: 'Вход'
+        come_in: 'Войти'
+    shared:
+      links:
+        log_in: 'Вход'
+        registration: 'Регистрация'
+        forgot_your_password: 'Забыли свой пароль?'
+        didn't_receive_confirmation_instructions: 'Не получили инструкции по подтверждению?'
+        didn't_receive_unlock_instructions: 'Не получили инструкции по разблокировке?'
+        sign_in_with: 'Войти в систему с'

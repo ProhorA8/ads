@@ -1,32 +1,44 @@
-<!--Форма для создания/правки объявления-->
-<div class="form">
-  <%= form_for(@ad) do |f| %>
-    <%= render partial: 'partials/form_errors', locals: {model: @ad} %>
+<%# Форма для создания/правки объявления %>
+<div class="row">
+  <div class="col-md-4">
+    <div class="form">
+      <%= form_for @ad, html: { multipart: true } do |f| %>
+        <%= render partial: 'partials/form_errors', locals: {model: @ad} %>
 
-    <div class="form-field">
-      <%= f.label :title, class: 'form-label' %>
-      <%= f.text_field :title %>
-    </div>
+        <div class="form-field">
+          <%= f.label :title %>
+          <%= f.text_field :title, class: 'form-control' %>
+        </div>
 
-    <div class="form-field">
-      <%= f.label :body, class: 'form-label' %>
-      <%= f.text_area :body, class: 'form-textarea', placeholder: t('views.ads.form.placeholder_info') %>
-    </div>
+        <div class="form-field">
+          <%= f.label :body %>
+          <%= f.text_area :body, class: 'form-control', placeholder: t('views.ads.form.placeholder_info') %>
+        </div>
 
-    <div class="form-field">
-      <%= f.label :type_ad, class: 'form-label' %>
-      <%= f.text_field :type_ad, placeholder: '#tag' %>
-    </div>
+        <div class="form-field">
+          <%= f.label :type_ad %>
+          <%= f.text_field :type_ad, class: 'form-control', placeholder: '#tag' %>
+        </div>
 
-    <div class="form-field">
-      <%= f.label :life_cycle, class: 'form-label' %>
-      <%= f.select(:life_cycle, options_for_select([['approved'], ['rejected']], @ad.life_cycle), {include_blank: true}) %>
-    </div>
+        <div class="form-field">
+          <%= f.label :life_cycle %>
+          <%= f.select(:life_cycle, options_for_select([['approved'], ['rejected']], @ad.life_cycle), {include_blank: true}, class: 'form-control') %>
+        </div>
 
-    <div class="form-action buffer-both">
-      <%= f.submit t('views.ads.form.save'), class: 'button button-dark button-small' %>
-      <%= t('views.ads.form.or') %>
-      <%= link_to t('views.ads.form.back'), :back %>
+        <div class="form-action buffer-both">
+          <%= f.submit t('views.ads.form.save'), class: 'btn btn-primary' %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
+
+  <div class="col-md-4">
+    <%# Форма для добавления новой фотографии %>
+    <%= render partial: 'photos/form', locals: {photo: @new_photo || @ad.photos.build} %>
+  </div>
+
+  <div class="col-md-4">
+    <%# Все фотографии объявления %>
+    <%= render partial: 'photos/photo', collection: @ad.photos.except(@new_photo) %>
+  </div>
 </div>

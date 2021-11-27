@@ -1,24 +1,24 @@
-<!--Форма пользователя-->
+<%# Форма пользователя %>
 <%= form_for @user, html: {multipart: true} do |f| %>
 
-  <div class="field">
-    <%= f.label :name, class: 'form-label' %>
-    <%= f.text_field :name %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :username, class: 'form-label' %>
-    <%= f.text_field :username %>
+  <div class="form-group">
+    <%= f.label :username %>
+    <%= f.text_field :username, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :email, class: 'form-label' %>
-    <%= f.text_field :email %>
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.text_field :email, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :role, class: 'form-label' %>
-    <%= f.select(:role, options_for_select([['admin'], ['user']], @user.role), {include_blank: true}) %>
+  <div class="form-group">
+    <%= f.label :role %>
+    <%= f.select(:role, options_for_select([['admin'], ['user']], @user.role), {include_blank: true}, class: 'form-control') %>
   </div>
   <div class="actions buffer-both">
-    <%= f.submit t('views.users.form.save'), class: 'button button-dark button-small' %>
+    <%= f.submit t('views.users.form.save'), class: 'btn btn-success' %>
     <%= t('views.users.form.or') %>
     <%= link_to t('views.users.form.back'), @user %><br>
   </div>
