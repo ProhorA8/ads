@@ -5,8 +5,7 @@ class Photo < ApplicationRecord
   belongs_to :user
 
   # У фотографии всегда есть объявление и пользователь
-  validates :ad, presence: true
-  validates :user, presence: true
+  validates :ad, :user, presence: true
 
   # Добавляем аплоадер фотографий, чтобы заработал carrierwave
   mount_uploader :photo, PhotoUploader

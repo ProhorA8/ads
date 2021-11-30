@@ -11,6 +11,7 @@ class Tag < ApplicationRecord
 
   validates :name, presence: true
 
+  # Для записи :name
   def to_param
     name
   end

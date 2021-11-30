@@ -16,7 +16,6 @@ class AdsController < ApplicationController
   end
 
   def show
-    @new_photo = @ad.photos.build(params[:photo])
     # Pundit создает новый экземпляр AdPolicy.new(current_user, @ad)
     # и вызывает у него метод, аналогичный имени текущего экшена: show?
     # если метод политики вернет false — будет брошен эксепшен

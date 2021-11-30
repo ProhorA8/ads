@@ -1,5 +1,8 @@
 {
   "name": "ads",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "jquery": "^3.6.0",
+    "select2": "^4.1.0-rc.0"
+  }
 }
