@@ -1,9 +1,16 @@
-<%# Все теги объявлений %>
-<div class="text-center text-md buffer-bottom">
-  <% @tags.each do |tag| %>
-    <%= link_to "##{tag.name}", tag_path(tag), rel: rand(20) %>
+<form class=" buffer-bottom">
+  <h2><%= 'Найденые теги' %></h2>
+
+  <%= form_with url: ads_path, method: :get do |f| %>
+    <%= f.collection_select :tag_ids, (@tags || []), :id, :name, {selected: params[:tag_ids]},
+                            multiple: true, required: true,
+                            class: 'js-multiple-select js-ajax-select w-100', data: {'ajax-url': '/api/tags'} %>
+
+    <button>
+      <%= f.submit 'Поиск', class: 'btn btn-outline-success' %>
+    </button>
   <% end %>
-</div>
+</form>
 
 <div class="column-1-6">
   <div class="ads-list">
@@ -14,5 +21,5 @@
 
 <%# Пагинация %>
 <div class="text-center">
-  <%= paginate @ads %>
+  <%= paginate @ads_page %>
 </div>

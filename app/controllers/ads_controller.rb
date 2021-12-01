@@ -3,6 +3,7 @@ class AdsController < ApplicationController
   before_action :_ad, only: :show
   # Задаем объект @ad от текущего юзера для других действий
   before_action :set_current_user_ad, only: %i[edit update destroy]
+  before_action :fetch_tags, only: %i[new edit]
 
   # Предохранитель от потери авторизации в нужных экшенах
   after_action :verify_authorized, except: %i[index show]
@@ -10,18 +11,16 @@ class AdsController < ApplicationController
   after_action :verify_policy_scoped, only: :index
 
   def index
-    @tags = Tag.with_ads
+    # @tags = Tag.with_ads
+
+    @ads = policy_scope(Ad.all_by_tags(params[:tag_ids]))
+    @tags = Tag.all
+
     # kaminari – .page(params[:page])
-    @ads = policy_scope(Ad.order(created_at: :desc).page(params[:page]))
+    @ads_page = policy_scope(Ad.order(created_at: :desc).page(params[:page]))
   end
 
-  def show
-    # Pundit создает новый экземпляр AdPolicy.new(current_user, @ad)
-    # и вызывает у него метод, аналогичный имени текущего экшена: show?
-    # если метод политики вернет false — будет брошен эксепшен
-    # и действие контроллера не продолжится
-    # authorize @ad
-  end
+  def show; end
 
   def new
     @ad = current_user.ads.build
@@ -65,6 +64,10 @@ class AdsController < ApplicationController
 
   private
 
+  def fetch_tags
+    @tags = Tag.all
+  end
+
   def _ad
     @ad ||= Ad.find(params[:id])
   end
@@ -74,6 +77,6 @@ class AdsController < ApplicationController
   end
 
   def ad_params
-    params.require(:ad).permit(:title, :body, :life_cycle, :type_ad)
+    params.require(:ad).permit(:title, :body, :life_cycle, tag_ids: [])
   end
 end

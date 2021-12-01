@@ -15,7 +15,7 @@
 
     <%# Ссылка тег %>
     <div class="text-muted">
-      <%= ad.tags.map { |h| link_to "##{h.name}", tag_path(h) }.join(', ').html_safe %>
+      <%= render ad.tags %>
     </div>
   </div>
 </div>

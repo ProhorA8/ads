@@ -1,8 +1,0 @@
-<%# Рендерим все объявления с тегом %>
-<div class="text-center buffer-both text-md">
-  <%= t('views.tags.show.title', tag_name: @tag.name) %>
-</div>
-
-<% @ads.each do |ad| %>
-  <%= render partial: 'ads/ad', object: ad %>
-<% end %>

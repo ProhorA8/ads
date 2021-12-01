@@ -2,7 +2,8 @@
 <div class="row">
   <div class="col-md-4">
     <div class="form">
-      <%= form_for @ad, html: { multipart: true } do |f| %>
+      <%#= form_for @ad, html: { multipart: true } do |f| %>
+      <%= form_with model: @ad do |f| %>
         <%= render partial: 'partials/form_errors', locals: {model: @ad} %>
 
         <div class="form-field">
@@ -16,9 +17,14 @@
         </div>
 
         <div class="form-field">
-          <%= f.label :type_ad %>
-          <%= f.text_field :type_ad, class: 'form-control', placeholder: '#tag' %>
+          <%= f.label :tags %>
         </div>
+
+        <div class="form-field">
+          <%= f.collection_select :tag_ids, tags, :id, :name, {}, multiple: true,
+                                  class: 'js-multiple-select js-ajax-select w-100' %>
+        </div>
+
 
         <div class="form-field">
           <%= f.label :life_cycle %>
@@ -39,6 +45,6 @@
 
   <div class="col-md-4">
     <%# Все фотографии объявления %>
-    <%= render partial: 'photos/photo', collection: @ad.photos.except(@new_photo) %>
+    <%#= render partial: 'photos/photo', collection: @ad.photos.except(@new_photo) %>
   </div>
 </div>

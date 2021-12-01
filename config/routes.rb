@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'ads#index'
 
   resources :users
-  resources :tags, param: :name, only: :show
+  resources :tags, only: :index
 
   resources :ads do
     # Вложенные в ресурс объявления ресурсы фотографий
