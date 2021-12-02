@@ -3,7 +3,7 @@ class AdsController < ApplicationController
   before_action :_ad, only: :show
   # Задаем объект @ad от текущего юзера для других действий
   before_action :set_current_user_ad, only: %i[edit update destroy]
-  before_action :fetch_tags, only: %i[new edit]
+  before_action :fetch_tags, only: %i[index new edit]
 
   # Предохранитель от потери авторизации в нужных экшенах
   after_action :verify_authorized, except: %i[index show]
@@ -11,13 +11,10 @@ class AdsController < ApplicationController
   after_action :verify_policy_scoped, only: :index
 
   def index
-    # @tags = Tag.with_ads
-
-    @ads = policy_scope(Ad.all_by_tags(params[:tag_ids]))
-    @tags = Tag.all
+    @ads = policy_scope(Ad.all_by_tags(@tags))
 
     # kaminari – .page(params[:page])
-    @ads_page = policy_scope(Ad.order(created_at: :desc).page(params[:page]))
+    @ads_all = policy_scope(Ad.page(params[:page]))
   end
 
   def show; end

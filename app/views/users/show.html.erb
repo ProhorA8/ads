@@ -24,9 +24,9 @@
   <%= link_to t('views.users.show.root'), root_path, class: 'btn btn-default' %><br>
 
 <%# Ссылка создания объявления пользователя с проверкой через pundit %>
-<%# if policy(Ad).create? %>
+<% if policy(Ad).create? %>
   <%= link_to t('views.users.show.create_ad'), new_ad_path, class: 'buffer-top btn btn-success' %>
-<%# end %>
+<% end %>
 
 <div class="text-lg buffer-both">
   <% if @user == current_user %>
@@ -36,7 +36,7 @@
 
 <%# Вывод всех объявлений пользователя %>
 <% if @user.ads.any? %>
-  <%= render partial: 'ads/ad', collection: @user.ads, class: 'buffer-both' %>
+  <%= render partial: 'ads/ad', collection: @user.ads.order(created_at: :desc), class: 'buffer-both' %>
 <% else %>
   <p class="buffer-top">
     <%= t('views.users.show.info') %>

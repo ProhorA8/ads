@@ -1,25 +1,26 @@
-<form class=" buffer-bottom">
-  <h2><%= t('views.ads.index.found_tags') %></h2>
+<% if current_user.present? %>
+  <form class=" buffer-bottom">
+    <h2><%= t('views.ads.index.found_tags') %></h2>
 
-  <%= form_with url: ads_path, method: :get do |f| %>
-    <%= f.collection_select :tag_ids, (@tags || []), :id, :name, {selected: params[:tag_ids]},
-                            multiple: true, required: true,
-                            class: 'js-multiple-select js-ajax-select w-100', data: {'ajax-url': '/api/tags'} %><br />
+    <%= form_with url: ads_path, method: :get do |f| %>
+      <%= f.collection_select :tag_ids, (@tags || []), :id, :name, {selected: params[:tag_ids]},
+                              multiple: true, required: true %><br />
 
-    <button>
-      <%= f.submit t('views.ads.index.search'), class: 'btn btn-outline-success' %>
-    </button>
-  <% end %>
-</form>
+      <button>
+        <%= f.submit t('views.ads.index.search'), class: 'btn btn-outline-success' %>
+      </button>
+    <% end %>
+  </form>
+<% end %>
 
 <div class="column-1-6">
   <div class="ads-list">
     <%# Рендерим сразу массив объявлений, каждый в паршиале 'ads/ad' %>
-    <%= render partial: 'ads/ad', collection: @ads, object: @user_ad %>
+    <%= render @ads_all %>
   </div>
 </div>
 
 <%# Пагинация %>
 <div class="text-center">
-  <%= paginate @ads_page %>
+  <%= paginate @ads_all %>
 </div>

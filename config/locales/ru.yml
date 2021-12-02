@@ -20,7 +20,7 @@ ru:
         title: 'Заголовок'
         body: 'Описание'
         life_cycle: 'Статус'
-        type_ad: 'Тэг'
+        tags: 'Тэг'
       photo:
         photo: 'Фотография'
 

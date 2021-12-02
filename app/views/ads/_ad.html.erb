@@ -10,10 +10,10 @@
     </div>
 
     <div class="ad-statistics">
-      <%= link_to "@#{ad.user.username}", user_path(ad.user) %>
+      <%= link_to "@#{current_user.username}", user_path(ad.user) %>
     </div>
 
-    <%# Ссылка тег %>
+    <%# Рендерим теги для конкретного объявления %>
     <div class="text-muted">
       <%= render ad.tags %>
     </div>
