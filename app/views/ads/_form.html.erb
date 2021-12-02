@@ -23,6 +23,14 @@
           <%= f.collection_select :tag_ids, tags, :id, :name, {}, multiple: true %>
         </div>
 
+        <div class="field">
+          <%= f.label :images %>
+          <% @ad.images.each do |image| %>
+            <p><%= image_tag image.variant resize: "100x100" %></p>
+            <%= link_to t('views.ads.form.delete_image'), purge_attachment_path(image),method: :delete %><br /><br />
+          <% end %>
+          <%= f.file_field :images, multiple: true %>
+        </div>
 
         <div class="form-field">
           <%= f.label :life_cycle %>

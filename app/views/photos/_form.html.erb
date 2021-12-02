@@ -1,14 +1,14 @@
 <%# Форма для добавления новой фотографии с одним полем photo %>
-<%= form_for [@ad, photo], html: { multipart: true } do |f| %>
-  <%= render partial: 'partials/form_errors', locals: {model: photo} %>
+<%#= form_for [@ad, photo], html: { multipart: true } do |f| %>
+  <%#= render partial: 'partials/form_errors', locals: {model: photo} %>
 
-  <div class="form-group">
-    <%= f.label :photo %>
-    <p><%= image_tag photo.photo.thumb.url if photo.photo? %></p>
-    <%= f.file_field :photo, class: 'form-control' %>
-  </div>
+<!--  <div class="form-group">-->
+    <%#= f.label :photo %>
+<!--    <p><%#= image_tag photo.photo.thumb.url if photo.photo? %></p>-->
+    <%#= f.file_field :photo, class: 'form-control' %>
+<!--  </div>-->
 
-  <div class="actions">
-    <%= f.submit t('views.photos.load'), class: 'btn btn-success' %>
-  </div>
-<% end %>
+<!--  <div class="actions">-->
+    <%#= f.submit t('views.photos.load'), class: 'btn btn-success' %>
+<!--  </div>-->
+<%# end %>

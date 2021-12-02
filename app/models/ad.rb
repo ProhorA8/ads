@@ -4,6 +4,7 @@ class Ad < ApplicationRecord
   has_many :photos, dependent: :destroy
   has_many :tag_ads, dependent: :destroy
   has_many :tags, through: :tag_ads
+  has_many_attached :images
 
   validates :title, :body, :life_cycle, presence: true
 

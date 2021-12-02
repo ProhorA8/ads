@@ -329,6 +329,7 @@ DEPENDENCIES
   fog-aws
   haml
   i18n
+  image_processing
   jbuilder (~> 2.5)
   jquery-rails
   kaminari

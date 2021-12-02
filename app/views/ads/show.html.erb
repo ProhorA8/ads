@@ -11,8 +11,15 @@
 
     <div class="col-md-6">
       <%# Все фотографии объявления %>
-      <% @ad.photos.each do |photo| %>
-        <%= link_to image_tag(photo.photo.thumb.url), photo.photo.url if photo.photo? %>
+      <% if @ad.images.attached? %>
+        <% @ad.images.each do |image| %>
+          <% if image.image? %>
+            <%=link_to image_tag(image.variant resize: "100x100"), ads_path %><br />
+            <%= link_to t('views.ads.show.delete_image'), purge_attachment_path(image),method: :delete %><br /><br />
+          <% else %>
+            <%= link_to image.filename, rails_blob_path(image, disposition: "attachment") %>
+          <% end %>
+        <% end %>
       <% end %>
     </div>
 

@@ -21,6 +21,7 @@ ru:
         body: 'Описание'
         life_cycle: 'Статус'
         tags: 'Тэг'
+        images: 'Изображение'
       photo:
         photo: 'Фотография'
 
@@ -43,6 +44,7 @@ ru:
     back: 'Назад'
     ads:
       form:
+        delete_image: 'Удалить изображение'
         placeholder_info: 'Подробно опишите товар или услугу'
         save: 'Сохранить'
       edit:
@@ -53,6 +55,7 @@ ru:
       new:
         new_ad: 'Новое объявление'
       show:
+        delete_image: 'Удалить изображение'
         edit: 'Редактировать'
         delete: 'Удалить'
         confirm_delete: 'Точно удалить объявление?'

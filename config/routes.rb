@@ -5,9 +5,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :tags, only: :index
+  resources :ads
 
-  resources :ads do
-    # Вложенные в ресурс объявления ресурсы фотографий
-    resources :photos, only: [:create, :destroy]
-  end
+  delete 'attachments/:id/purge/', to: 'attachments#purge', as: 'purge_attachment'
 end
