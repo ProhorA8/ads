@@ -1,13 +1,13 @@
 <form class=" buffer-bottom">
-  <h2><%= 'Найденые теги' %></h2>
+  <h2><%= t('views.ads.index.found_tags') %></h2>
 
   <%= form_with url: ads_path, method: :get do |f| %>
     <%= f.collection_select :tag_ids, (@tags || []), :id, :name, {selected: params[:tag_ids]},
                             multiple: true, required: true,
-                            class: 'js-multiple-select js-ajax-select w-100', data: {'ajax-url': '/api/tags'} %>
+                            class: 'js-multiple-select js-ajax-select w-100', data: {'ajax-url': '/api/tags'} %><br />
 
     <button>
-      <%= f.submit 'Поиск', class: 'btn btn-outline-success' %>
+      <%= f.submit t('views.ads.index.search'), class: 'btn btn-outline-success' %>
     </button>
   <% end %>
 </form>

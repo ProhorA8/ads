@@ -40,20 +40,21 @@ ru:
 
   # Перевод сообщений, которые отправляет вьюха
   views:
+    back: 'Назад'
     ads:
       form:
         placeholder_info: 'Подробно опишите товар или услугу'
         save: 'Сохранить'
-        or: 'или'
-        back: 'Назад'
       edit:
         edit_ad: 'Редактировать объявление'
+      index:
+        found_tags: 'Найденые теги'
+        search: 'Поиск'
       new:
         new_ad: 'Новое объявление'
       show:
         edit: 'Редактировать'
         delete: 'Удалить'
-        back: 'Назад'
         confirm_delete: 'Точно удалить объявление?'
     partials:
       form_errors:
@@ -69,7 +70,6 @@ ru:
       form:
         save: 'Сохранить'
         or: 'или'
-        back: 'Назад'
         delete: 'Удалить профиль'
         confirm_delete: 'Вы уверены?'
       edit:
