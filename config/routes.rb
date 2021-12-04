@@ -7,5 +7,9 @@ Rails.application.routes.draw do
   resources :tags, only: :index
   resources :ads
 
+  namespace :admin do
+    resources :users, only: :index
+  end
+
   delete 'attachments/:id/purge/', to: 'attachments#purge', as: 'purge_attachment'
 end
