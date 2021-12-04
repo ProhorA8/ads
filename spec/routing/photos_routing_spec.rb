@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+# rubocop:disable Metrics/BlockLength
 RSpec.describe PhotosController, type: :routing do
   describe 'routing' do
     it 'routes to #index' do
@@ -35,3 +36,4 @@ RSpec.describe PhotosController, type: :routing do
     end
   end
 end
+# rubocop:enable all

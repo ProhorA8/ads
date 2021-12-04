@@ -26,9 +26,12 @@ class ApplicationController < ActionController::Base
 
   # Вспомогательный метод, возвращает true, если текущий залогиненный юзер
   # может править и удалять указанное объявление
+  # Отключаем копа, проверяющего насколько информативны имена параметров метода
+  # rubocop:disable Naming/MethodParameterName
   def current_user_can_edit?(ad)
     user_signed_in? && ad.user == current_user
   end
+  # rubocop:enable all
 
   private
 

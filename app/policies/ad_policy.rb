@@ -32,7 +32,10 @@ class AdPolicy < ApplicationPolicy
 
   private
 
+  # Отключаем копа, проверяющего насколько информативны имена параметров метода
+  # rubocop:disable Naming/MethodParameterName
   def user_is_owner?(ad)
     user.present? && (ad.try(:user) == user)
   end
+  # rubocop:enable all
 end

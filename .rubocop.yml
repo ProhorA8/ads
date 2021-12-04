@@ -1,45 +1,43 @@
 AllCops:
+  TargetRubyVersion: 2.3.1
   Exclude:
     - 'db/**/*'
     - 'config/**/*'
     - 'script/**/*'
-    - 'bin/{rails,rake}'
+    - 'bin/*'
 
+# Проверяет длину строки
 Layout/LineLength:
   Max: 120
 
+# Проверяет наличие утверждений raise или fail
 Lint/RaiseException:
   Enabled: true
 
+# Проверяет неожиданные переопределения Struct встроенных методов через Struct.new
 Lint/StructNewOverride:
   Enabled: true
 
-Naming/MethodParameterName:
-  Enabled: false
-
+# Использование методов хеширования
 Style/HashEachMethods:
   Enabled: true
 
+# Для использования преобразования ключей хэша
 Style/HashTransformKeys:
   Enabled: true
 
+# Для использования преобразования значений хэша
 Style/HashTransformValues:
   Enabled: true
 
+# Наличие не английских комментариев
 Style/AsciiComments:
   Enabled: false
 
+# Отсутствие документации верхнего уровня по классам и модулям
 Style/Documentation:
   Enabled: false
 
-Style/MixinUsage:
-  Enabled: false
-
-Style/ClassAndModuleChildren:
-  Enabled: false
-
-Metrics/BlockLength:
-  Max: 100
-
+# Замороженные строковые литералы
 Style/FrozenStringLiteralComment:
   Enabled: false

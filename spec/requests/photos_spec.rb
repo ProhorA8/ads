@@ -12,6 +12,7 @@ require 'rails_helper'
 # of tools you can use to make these specs even more expressive, but we're
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
+# rubocop:disable Metrics/BlockLength
 RSpec.describe '/photos', type: :request do
   # Photo. As you add validations to Photo, be sure to
   # adjust the attributes here as well.
@@ -127,3 +128,4 @@ RSpec.describe '/photos', type: :request do
     end
   end
 end
+# rubocop:enable all
