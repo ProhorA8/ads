@@ -13,6 +13,11 @@
   </form>
 <% end %>
 
+<%# Пагинация %>
+<div class="text-center">
+  <%= paginate @ads_all if @ads_all.total_pages > 1 %>
+</div>
+
 <div class="column-1-6">
   <div class="ads-list">
     <%# Рендерим сразу массив объявлений, каждый в паршиале 'ads/ad' %>
@@ -22,5 +27,5 @@
 
 <%# Пагинация %>
 <div class="text-center">
-  <%= paginate @ads_all %>
+  <%= paginate @ads_all if @ads_all.total_pages > 1 %>
 </div>

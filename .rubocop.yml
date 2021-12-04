@@ -39,7 +39,7 @@ Style/ClassAndModuleChildren:
   Enabled: false
 
 Metrics/BlockLength:
-  Max: 35
+  Max: 100
 
 Style/FrozenStringLiteralComment:
   Enabled: false

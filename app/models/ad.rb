@@ -9,15 +9,15 @@ class Ad < ApplicationRecord
   validates :title, :body, :life_cycle, presence: true
 
   # scope :all_by_tags = def self.all_by_tags
-  scope :all_by_tags, ->(tags) do
+  scope :all_by_tags, lambda { |tags|
     ads = includes(:user)
     # если tag_ids не nil
-    if tags
-      ads = ads.joins(:tags).where(tags: tags).preload(:tags)
-    else
-      ads = ads.includes(:tag_ads, :tags)
-    end
+    ads = if tags
+            ads.joins(:tags).where(tags: tags).preload(:tags)
+          else
+            ads.includes(:tag_ads, :tags)
+          end
 
     ads.order(created_at: :desc)
-  end
+  }
 end
