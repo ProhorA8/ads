@@ -27,6 +27,8 @@ ru:
 
   # Перевод сообщений, которые отправляет контроллер
   controllers:
+    attachments:
+      image_delete: 'Изображение удалено'
     ads:
       created: 'Вы создали новое объявление'
       updated: 'Вы обновили объявление'
@@ -40,62 +42,72 @@ ru:
       destroyed: 'Вы удалили фотку'
 
   # Перевод сообщений, которые отправляет вьюха
-  views:
-    back: 'Назад'
-    ads:
-      form:
-        delete_image: 'Удалить изображение'
-        placeholder_info: 'Подробно опишите товар или услугу'
-        save: 'Сохранить'
-      edit:
-        edit_ad: 'Редактировать объявление'
-      index:
-        found_tags: 'Найденые теги'
-        search: 'Поиск'
-      new:
-        new_ad: 'Новое объявление'
-      show:
-        delete_image: 'Удалить изображение'
-        edit: 'Редактировать'
-        delete: 'Удалить'
-        confirm_delete: 'Точно удалить объявление?'
-    partials:
-      form_errors:
-        info: "В вашей форме %{count} ошибок"
-    photos:
-      load: 'Загрузить'
-      delete: 'Удалить фото'
-      confirm_delete: 'Удалить фото?'
-    tags:
-      show:
-        title: 'Список объявлений для тега – %{tag_name}'
+  admin:
     users:
-      form:
-        save: 'Сохранить'
-        or: 'или'
-        delete: 'Удалить профиль'
-        confirm_delete: 'Вы уверены?'
-      edit:
-        edit_user: 'Редактирование пользователя'
-        change_password: 'Изменить пароль/Удалить профиль'
-      show:
+      index:
+        count_users: 'Количество пользователей'
+        hash: '#'
         name: 'Имя'
-        username: 'Псевдоним'
-        email: 'Email'
+        email: 'Почта'
+        created_at: 'Создан'
+        updated_at: 'Обновлён'
         role: 'Роль'
-        create_ad: 'Создать объявление'
-        info: 'Пользователь пока не создал объявление'
-        edit_user: 'Редактировать профиль'
-        root: 'На главную'
-        edit: 'Редактировать'
-        my_ads: 'Мои объявления'
-    # Для пагинации
-    pagination:
-      first: "&laquo; Первая"
-      last: "Последняя &raquo;"
-      previous: "&lsaquo; Предыдущая"
-      next: "Следующая &rsaquo;"
-      truncate: "&hellip;"
+  ads:
+    back: 'Назад'
+    form:
+      delete_image: 'Удалить изображение'
+      placeholder_info: 'Подробно опишите товар или услугу'
+      save: 'Сохранить'
+    edit:
+      edit_ad: 'Редактировать объявление'
+    index:
+      found_tags: 'Найденые теги'
+      search: 'Поиск'
+    new:
+      new_ad: 'Новое объявление'
+    show:
+      delete_image: 'Удалить изображение'
+      edit: 'Редактировать'
+      delete: 'Удалить'
+      confirm_delete: 'Точно удалить объявление?'
+  partials:
+    form_errors:
+      info: "В вашей форме %{count} ошибок"
+  photos:
+    load: 'Загрузить'
+    delete: 'Удалить фото'
+    confirm_delete: 'Удалить фото?'
+  tags:
+    show:
+      title: 'Список объявлений для тега – %{tag_name}'
+  users:
+    form:
+      save: 'Сохранить'
+      or: 'или'
+      delete: 'Удалить профиль'
+      confirm_delete: 'Вы уверены?'
+      back: 'Назад'
+    edit:
+      edit_user: 'Редактирование пользователя'
+      change_password: 'Изменить пароль/Удалить профиль'
+    show:
+      name: 'Имя'
+      username: 'Псевдоним'
+      email: 'Email'
+      role: 'Роль'
+      create_ad: 'Создать объявление'
+      info: 'Пользователь пока не создал объявление'
+      edit_user: 'Редактировать профиль'
+      root: 'На главную'
+      edit: 'Редактировать'
+      my_ads: 'Мои объявления'
+  # Для пагинации
+  pagination:
+    first: "&laquo; Первая"
+    last: "Последняя &raquo;"
+    previous: "&lsaquo; Предыдущая"
+    next: "Следующая &rsaquo;"
+    truncate: "&hellip;"
 
   # Перевод для стартовой страницы
   app:

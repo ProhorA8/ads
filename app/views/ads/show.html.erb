@@ -15,7 +15,7 @@
         <% @ad.images.each do |image| %>
           <% if image.image? %>
             <%=link_to image_tag(image.variant resize: "100x100"), ads_path %><br />
-            <%= link_to t('views.ads.show.delete_image'), purge_attachment_path(image),method: :delete %><br /><br />
+            <%= link_to t('.delete_image'), purge_attachment_path(image),method: :delete %><br /><br />
           <% else %>
             <%= link_to image.filename, rails_blob_path(image, disposition: "attachment") %>
           <% end %>
@@ -24,15 +24,15 @@
     </div>
 
     <% if current_user_can_edit?(@ad) %>
-      <%= link_to t('views.ads.show.edit'), edit_ad_path(@ad), class: 'btn btn-warning' %>
-      <%= link_to t('views.ads.show.delete'), ad_path(@ad),
-                  method: :delete, data: {confirm: t('views.ads.show.confirm_delete')}, class: 'btn btn-danger' %>
+      <%= link_to t('.edit'), edit_ad_path(@ad), class: 'btn btn-warning' %>
+      <%= link_to t('.delete'), ad_path(@ad),
+                  method: :delete, data: {confirm: t('.confirm_delete')}, class: 'btn btn-danger' %>
 
       <div class="buffer-top">
         <%= @ad.life_cycle %>
       </div>
     <% end %>
 
-    <%= link_to t('views.back'), :back %>
+    <%= link_to t('ads.back'), :back %>
   </div>
 </div>

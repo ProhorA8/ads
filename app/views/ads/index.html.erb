@@ -1,13 +1,13 @@
 <% if current_user.present? %>
   <form class=" buffer-bottom">
-    <h2><%= t('views.ads.index.found_tags') %></h2>
+    <h2><%= t '.found_tags' %></h2>
 
     <%= form_with url: ads_path, method: :get do |f| %>
       <%= f.collection_select :tag_ids, (@tags || []), :id, :name, {selected: params[:tag_ids]},
                               multiple: true, required: true %><br />
 
       <button>
-        <%= f.submit t('views.ads.index.search'), class: 'btn btn-outline-success' %>
+        <%= f.submit t '.search', class: 'btn btn-outline-success' %>
       </button>
     <% end %>
   </form>

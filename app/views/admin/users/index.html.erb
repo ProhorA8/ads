@@ -1,15 +1,15 @@
-<div class="text-md">Колличество пользователей</div>
+<div class="text-md"><%= t '.count_users' %></div>
 <%= @users.count %>
 
 <table class="table table-striped table-hover">
   <thead>
   <tr>
-    <th scope="col">#</th>
-    <th scope="col">Name</th>
-    <th scope="col">Email</th>
-    <th scope="col">Created at</th>
-    <th scope="col">Updated at</th>
-    <th scope="col">Role</th>
+    <th scope="col"><%= t '.hash' %></th>
+    <th scope="col"><%= t '.name' %></th>
+    <th scope="col"><%= t '.email' %></th>
+    <th scope="col"><%= t '.created_at' %></th>
+    <th scope="col"><%= t '.updated_at' %></th>
+    <th scope="col"><%= t '.role' %></th>
   </tr>
   </thead>
   <tbody>

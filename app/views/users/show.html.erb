@@ -2,10 +2,10 @@
 <table class="table">
   <thead>
   <tr>
-    <th><%= t('views.users.show.name') %></th>
-    <th><%= t('views.users.show.username') %></th>
-    <th><%= t('views.users.show.email') %></th>
-    <th><%= t('views.users.show.role') %></th>
+    <th><%= t '.name' %></th>
+    <th><%= t '.username' %></th>
+    <th><%= t '.email'%></th>
+    <th><%= t '.role' %></th>
   </tr>
   </thead>
   <tbody>
@@ -19,18 +19,18 @@
 </table><br>
 
 <% if @user == current_user %>
-    <%= link_to t('views.users.show.edit_user'), edit_user_path(@user), class: 'btn btn-default' %>
+    <%= link_to t('.edit_user'), edit_user_path(@user), class: 'btn btn-default' %>
 <% end %>
-  <%= link_to t('views.users.show.root'), root_path, class: 'btn btn-default' %><br>
+  <%= link_to t('.root'), root_path, class: 'btn btn-default' %><br>
 
 <%# Ссылка создания объявления пользователя с проверкой через pundit %>
 <% if policy(Ad).create? %>
-  <%= link_to t('views.users.show.create_ad'), new_ad_path, class: 'buffer-top btn btn-success' %>
+  <%= link_to t('.create_ad'), new_ad_path, class: 'buffer-top btn btn-success' %>
 <% end %>
 
 <div class="text-lg buffer-both">
   <% if @user == current_user %>
-    <%= t('views.users.show.my_ads') %>
+    <%= t '.my_ads' %>
   <% end %>
 </div>
 
@@ -39,6 +39,6 @@
   <%= render partial: 'ads/ad', collection: @ads, class: 'buffer-both' %>
 <% else %>
   <p class="buffer-top">
-    <%= t('views.users.show.info') %>
+    <%= t '.info' %>
   </p>
 <% end %>

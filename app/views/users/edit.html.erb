@@ -1,5 +1,5 @@
 <%# Страница редактирования пользователя %>
-<h1><%= t('views.users.edit.edit_user') %></h1>
+<h1><%= t '.edit_user' %></h1>
 
 <div class="row">
   <div class="col-md-6 buffer-top">
@@ -8,4 +8,4 @@
 </div>
 
 <%# Ссылка на смену пароля текущего залогиненного юзера (этот путь генерит девайз) %>
-<%= link_to t('views.users.edit.change_password'), edit_user_registration_path %>
+<%= link_to t('.change_password'), edit_user_registration_path %>

@@ -12,7 +12,7 @@
 
         <div class="form-field">
           <%= f.label :body %>
-          <%= f.text_area :body, class: 'form-control', placeholder: t('views.ads.form.placeholder_info') %>
+          <%= f.text_area :body, class: 'form-control', placeholder: t('.placeholder_info') %>
         </div>
 
         <div class="form-field">
@@ -27,7 +27,7 @@
           <%= f.label :images %>
           <% @ad.images.each do |image| %>
             <p><%= image_tag image.variant resize: "100x100" %></p>
-            <%= link_to t('views.ads.form.delete_image'), purge_attachment_path(image),method: :delete %><br /><br />
+            <%= link_to t('.delete_image'), purge_attachment_path(image),method: :delete %><br /><br />
           <% end %>
           <%= f.file_field :images, multiple: true %>
         </div>
@@ -38,7 +38,7 @@
         </div>
 
         <div class="form-action buffer-both">
-          <%= f.submit t('views.ads.form.save'), class: 'btn btn-primary' %>
+          <%= f.submit t '.save', class: 'btn btn-primary' %>
         </div>
       <% end %>
     </div>
