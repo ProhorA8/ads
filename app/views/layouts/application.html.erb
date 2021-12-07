@@ -31,7 +31,11 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <%#= bootstrap_flash %>
+          <%# Вывод уведомлений для пользователя %>
+          <% flash.each do |k,v| %>
+            <%= tag.div v, class: " alert alert-#{k}", role: 'alert' %>
+          <% end %>
+
           <%= yield %>
         </div>
       </div>

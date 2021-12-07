@@ -29,8 +29,9 @@ class AdsController < ApplicationController
     authorize @ad
 
     if @ad.save
+      flash[:success] = I18n.t('controllers.ads.created')
 
-      redirect_to user_path(@ad.user), notice: I18n.t('controllers.ads.created')
+      redirect_to user_path(@ad.user)
     else
       render :edit, status: :unprocessable_entity
     end
@@ -44,7 +45,9 @@ class AdsController < ApplicationController
     authorize @ad
 
     if @ad.update(ad_params)
-      redirect_to ad_path(@ad), notice: I18n.t('controllers.ads.updated')
+      flash[:success] = I18n.t('controllers.ads.updated')
+
+      redirect_to ad_path(@ad)
     else
       render :edit, status: :unprocessable_entity
     end
@@ -56,7 +59,9 @@ class AdsController < ApplicationController
     user = @ad.user
 
     @ad.destroy
-    redirect_to user_path(user), notice: I18n.t('controllers.ads.destroyed')
+    flash[:success] = I18n.t('controllers.ads.destroyed')
+
+    redirect_to user_path(user)
   end
 
   private

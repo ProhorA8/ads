@@ -14,8 +14,9 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
+      flash[:success] = I18n.t('controllers.users.updated')
 
-      redirect_to @user, notice: I18n.t('controllers.users.updated')
+      redirect_to @user
     else
       render :edit, status: :unprocessable_entity
     end
@@ -23,8 +24,9 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
+    flash[:success] = I18n.t('controllers.users.destroyed')
 
-    redirect_to users_url, notice: I18n.t('controllers.users.destroyed')
+    redirect_to users_url
   end
 
   private
