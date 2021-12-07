@@ -1,14 +1,15 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.3.1'
+ruby '2.7.3'
 
+gem 'bigdecimal'
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.1.0', require: false
+gem 'bootsnap', require: false
 # Гем для загрузки картинок
 gem 'carrierwave'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2'
+# gem 'coffee-rails'
 # Аутентификации для Rails, основанное на Warden
 gem 'devise'
 # Гем для перевода сообщений девайса
@@ -19,8 +20,6 @@ gem 'i18n'
 gem 'image_processing'
 # Помощник нумерации страниц
 gem 'kaminari'
-# Для создания снимков экрана, получения реальных тестовых данных и заполнения вашей базы данных
-gem 'faker'
 # Гем для работы carrierwave с хранилищем Amazon S3
 gem 'fog-aws'
 # Предоставляет набор помощников для авторизации
@@ -28,32 +27,36 @@ gem 'pundit'
 # Шаблонизатор для HTML
 gem 'haml'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.5'
+# gem 'jbuilder'
 # Предоставляет jQuery и драйвер jQuery-ujs
-gem 'jquery-rails'
+# gem 'jquery-rails'
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem 'puma'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.6'
+gem 'rails', '~> 6.1.3', '>= 6.1.3.2'
 gem 'rails-i18n'
 # Гем для обработки картинок
 gem 'rmagick'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
+gem 'turbolinks'
 # Подключаем Bootstrap
-gem 'twitter-bootstrap-rails'
+# gem 'twitter-bootstrap-rails'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-
+# gem 'uglifier'
+# Transpile app-like JavaScript.
+gem 'webpacker'
+gem 'bootstrap'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  # Для создания снимков экрана, получения реальных тестовых данных и заполнения вашей базы данных
+  gem 'faker'
   # Для создания тестовых данных
   gem 'factory_bot_rails'
   # Консоль разработчика среды выполнения
@@ -64,16 +67,16 @@ group :development, :test do
   # Статический анализатор кода Ruby
   gem 'rubocop'
   # Ускоряет написание тестов
-  gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
+  gem 'shoulda-matchers'
 end
 
 group :development do
-  gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'listen'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'spring-watcher-listen'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
+  gem 'web-console'
 end
 
 group :production do
