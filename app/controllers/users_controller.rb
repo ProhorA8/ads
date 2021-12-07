@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @ads = @user.ads.order(created_at: :desc)
     authorize @user
   end
 
