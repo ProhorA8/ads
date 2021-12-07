@@ -1,7 +1,6 @@
 class Ad < ApplicationRecord
   belongs_to :user
 
-  has_many :photos, dependent: :destroy
   has_many :tag_ads, dependent: :destroy
   has_many :tags, through: :tag_ads
   has_many_attached :images
