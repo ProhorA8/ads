@@ -16,6 +16,8 @@ default: &default
   cache_manifest: false
 
   # Extract and emit a css file
+  # Таблицы стилей не компилируются в отдельные файлы, они добавляются в представление,
+  # после того, как файл javascript будет полностью загружен браузером
   extract_css: false
 
   static_assets_extensions:

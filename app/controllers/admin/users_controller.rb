@@ -1,5 +1,7 @@
-class Admin::UsersController < ApplicationController
-  def index
-    @users = User.all.order(name: :desc)
+module Admin
+  class UsersController < ApplicationController
+    def index
+      @users = User.all.order(name: :desc)
+    end
   end
 end

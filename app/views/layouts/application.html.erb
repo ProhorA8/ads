@@ -2,30 +2,49 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content_for?(:title) ? yield(:title) : t('app.tab_title') %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <div class="navbar navbar-default navbar-static-top justify-content-between">
+    <header class="p-3 bg-dark text-white">
       <div class="container">
-        <a class="navbar-brand" href="/">Ads</a>
-        <div class="navbar-collapse collapse navbar-responsive-collapse">
-          <ul class="nav navbar-nav">
+        <nav class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+
+          <%# Пользователь %>
+          <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
             <% if user_signed_in? %>
-              <li><%= link_to t('app.profile'), current_user %></li>
-              <li><%= link_to t('app.sign_out'), destroy_user_session_path, method: :delete %></li>
+              <li class="dropdown">
+                <%= link_to '#',
+                            class: 'nav-link px-2 dropdown-toggle text-white',
+                            data: {"bs-toggle": 'dropdown'} do %>
+                  <%= current_user.name %>
+                <% end %>
+
+                <ul class="dropdown-menu">
+                  <li>
+                    <%= link_to t('app.profile'), current_user,
+                                class: 'dropdown-item' %>
+                  </li>
+
+                  <li><hr class="dropdown-divider"></li>
+
+                  <li>
+                    <%= link_to t('app.sign_out'), destroy_user_session_path,
+                                class: 'dropdown-item', data: {method: :delete} %>
+                  </li>
+                </ul>
+              </li>
             <% else %>
               <li><%= link_to t('app.sign_in'), new_user_session_path %></li>
             <% end %>
           </ul>
 
-          <%# Вывод локали %>
+          <%# Локаль %>
           <ul class="nav col-12 col-lg-auto mb-2 mb-md-0">
             <li class="dropdown">
               <%= link_to '#', class: 'nav-link px-2 dropdown-toggle text-white',
@@ -42,7 +61,7 @@
                     <% if I18n.locale == locale %>
                       <%= tag.span t(locale), class: 'dropdown-item' %>
                     <% else %>
-                      <%= link_to t(locale), root_path(locale: locale),
+                      <%= link_to t(locale), url_for(locale: locale),
                                   class: 'dropdown-item' %>
                     <% end %>
                   </li>
@@ -50,25 +69,22 @@
               </ul>
             </li>
           </ul>
-        </div>
+
+        </nav>
       </div>
-    </div>
+    </header>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <%# Вывод уведомлений для пользователя %>
-          <% flash.each do |k,v| %>
-            <%= tag.div v, class: " alert alert-#{k}", role: 'alert' %>
-          <% end %>
+    <main class="container mt-3">
+      <%# Вывод уведомлений для пользователя %>
+      <% flash.each do |k,v| %>
+        <%= tag.div v, class: " alert alert-#{k}", role: 'alert' %>
+      <% end %>
 
-          <%= yield %>
-        </div>
-      </div>
+      <%= yield %>
+    </main>
 
-      <footer class="text-center buffer-top">
-        <p>&copy; Company 2021</p>
-      </footer>
-    </div>
+    <footer class="text-center buffer-top">
+      <p>&copy; Company 2021</p>
+    </footer>
   </body>
 </html>
