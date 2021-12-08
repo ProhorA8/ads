@@ -1,12 +1,112 @@
 en:
+  en: English
+  ru: Russian
+  # Model translation
+  activerecord:
+    models:
+      user: 'User'
+      ad: 'Ad'
+
+    # Translating model attribute names
+    attributes:
+      user:
+        email: 'Email'
+        name: 'Name'
+        username: 'Username'
+        role: 'Role'
+        password: 'Password'
+        password_confirmation: 'Password confirmation'
+      ad:
+        title: 'Title'
+        body: 'Description'
+        life_cycle: 'Status'
+        tags: 'Tag'
+        images: 'Image'
+
+  # Translating messages sent by the controller
+  controllers:
+    attachments:
+      image_delete: 'Image deleted'
+    ads:
+      created: 'You have created a new ad'
+      updated: "You've updated your ad"
+      destroyed: 'You have deleted your ad'
+    users:
+      updated: 'You have updated your profile'
+      destroyed: 'You have deleted your profile'
+
+  # Translation of messages sent by the view
+  admin:
+    users:
+      index:
+        count_users: 'Count of users'
+        hash: '#'
+        name: 'Name'
+        email: 'Email'
+        created_at: 'Created by'
+        updated_at: 'Updated'
+        role: 'Role'
+  ads:
+    back: 'Back'
+    form:
+      delete_image: 'Delete image'
+      placeholder_info: 'Describe the product or service in detail'
+      save: 'Save'
+    edit:
+      edit_ad: 'Edit ad'
+    index:
+      found_tags: 'Found tags'
+      search: 'Search'
+    new:
+      new_ad: 'New announcement'
+    show:
+      delete_image: 'Delete image'
+      edit: 'Edit'
+      delete: 'Delete'
+      confirm_delete: 'Are you sure you want to remove the ad?'
+  partials:
+    form_errors:
+      info: "In your form %{count} error"
+  tags:
+    show:
+      title: 'List of ads for the tag – %{tag_name}'
+  users:
+    form:
+      save: 'Save'
+      or: 'or'
+      delete: 'Delete profile'
+      confirm_delete: 'Are you sure?'
+      back: 'Back'
+    edit:
+      edit_user: 'Editing a user'
+      change_password: 'Change password / Delete profile'
+    show:
+      name: 'Name'
+      username: 'Username'
+      email: 'Email'
+      role: 'Role'
+      create_ad: 'Create ad'
+      info: 'User has not created an ad yet'
+      edit_user: 'Edit profile'
+      root: 'To main'
+      edit: 'Edit'
+      my_ads: 'My announcements'
   # For pagination
-  views:
-    pagination:
-      first: "&laquo; First"
-      last: "Last &raquo;"
-      previous: "&lsaquo; Prev"
-      next: "Next &rsaquo;"
-      truncate: "&hellip;"
+  pagination:
+    first: "&laquo; First"
+    last: "Last &raquo;"
+    previous: "&lsaquo; Previous"
+    next: "Next &rsaquo;"
+    truncate: "&hellip;"
+
+  # Translation for the start page
+  app:
+    tab_title: 'Ads'
+    name: 'Ads'
+    profile: 'Profile'
+    sign_out: 'Sign out'
+    sign_in: 'Sign in'
+    register: 'Register now'
 
   helpers:
     page_entries_info:

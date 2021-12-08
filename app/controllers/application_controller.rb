@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
-  # подключаем модуль из concerns
+  # подключаем модули из concerns
   include ErrorHandling
+  include Internationalization
 
   # Подключить функционал Пандита ко всем контроллерам
   include Pundit
