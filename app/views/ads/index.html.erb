@@ -1,31 +1,29 @@
 <% if current_user.present? %>
-  <form class=" buffer-bottom">
+  <form class="mb-5">
     <h2><%= t '.found_tags' %></h2>
 
     <%= form_with url: ads_path, method: :get do |f| %>
       <%= f.collection_select :tag_ids, (@tags || []), :id, :name, {selected: params[:tag_ids]},
                               multiple: true, required: true %><br />
 
-      <button>
-        <%= f.submit t '.search', class: 'btn btn-outline-success' %>
+      <button class="my-4">
+        <%= f.submit t '.search' %>
       </button>
     <% end %>
   </form>
 <% end %>
 
-<%# Пагинация %>
+<%# Пагинация, если объявлений больше 5 шт. %>
 <div class="text-center">
   <%= paginate @ads_all if @ads_all.total_pages > 1 %>
 </div>
 
+<%# Рендерим сразу массив объявлений, каждый в паршиале 'ads/ad' %>
 <div class="column-1-6">
-  <div class="ads-list">
-    <%# Рендерим сразу массив объявлений, каждый в паршиале 'ads/ad' %>
-    <%= render @ads_all %>
-  </div>
+  <%= render @ads_all %>
 </div>
 
-<%# Пагинация %>
+<%# Пагинация, если объявлений больше 5 шт.%>
 <div class="text-center">
   <%= paginate @ads_all if @ads_all.total_pages > 1 %>
 </div>

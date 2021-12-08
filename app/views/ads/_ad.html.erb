@@ -1,21 +1,20 @@
 <%# Паршал отображения объявлений %>
 <div class="ad shadow p-3 mb-5 bg-white rounded">
-  <div class="ad-content">
-    <div class="ad-text">
-      <%= link_to ad.title, ad_path(ad) %>
-    </div>
+  <div class="mb-5 fw-bold">
+    <%= link_to ad.title, ad_path(ad) %>
+  </div>
 
-    <div class="text-muted">
-      <%= l(ad.created_at, format: :short) %>
-    </div>
+  <%# Создатель объявления и время создания %>
+  <div class="container ps-0 my-2">
+    <div class="d-inline-block">
+      <%= link_to "@#{ad.user.username}", user_path(ad.user), class: 'pe-2' %>
 
-    <div class="ad-statistics">
-      <%= link_to "@#{ad.user.username}", user_path(ad.user) %>
+      <%= l(ad.created_at, format: :short ) %>
     </div>
+  </div>
 
-    <%# Рендерим теги для конкретного объявления %>
-    <div class="text-muted">
-      <%= render ad.tags %>
-    </div>
+  <%# Рендерим теги для конкретного объявления %>
+  <div class="text-muted">
+    <%= render ad.tags %>
   </div>
 </div>

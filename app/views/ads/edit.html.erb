@@ -1,8 +1,4 @@
 <%# Редактирование объявления %>
 <h1><%= t '.edit_ad' %></h1>
-<div class="row">
-  <div class="buffer-top">
-    <%= render 'form', tags: @tags %>
-    <%= link_to t('ads.back'), ad_path(@ad) %>
-  </div>
-</div>
+
+<%= render 'form', tags: @tags %>

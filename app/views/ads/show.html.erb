@@ -5,7 +5,7 @@
       <%= @ad.title %>
     </div>
 
-    <div class="text-md buffer-both">
+    <div class="text-md my-4">
       <%= @ad.body %>
     </div>
 
@@ -23,16 +23,18 @@
       <% end %>
     </div>
 
-    <% if current_user_can_edit?(@ad) %>
-      <%= link_to t('.edit'), edit_ad_path(@ad), class: 'btn btn-warning' %>
-      <%= link_to t('.delete'), ad_path(@ad),
-                  method: :delete, data: {confirm: t('.confirm_delete')}, class: 'btn btn-danger' %>
+    <div class="my-4">
+      <% if current_user_can_edit?(@ad) %>
+        <%= link_to t('.edit'), edit_ad_path(@ad), class: 'btn btn-outline-warning btn-sm' %>
+        <%= link_to t('.delete'), ad_path(@ad),
+                    method: :delete, data: {confirm: t('.confirm_delete')}, class: 'btn btn-outline-danger btn-sm' %>
+    </div>
 
-      <div class="buffer-top">
+      <div class="my-1 text-muted">
         <%= @ad.life_cycle %>
       </div>
     <% end %>
 
-    <%= link_to t('ads.back'), :back %>
+    <%= link_to t('ads.back'), user_path(current_user) %>
   </div>
 </div>

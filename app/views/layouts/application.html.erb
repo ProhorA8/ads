@@ -22,20 +22,18 @@
                 <%= link_to '#',
                             class: 'nav-link px-2 dropdown-toggle text-white',
                             data: {"bs-toggle": 'dropdown'} do %>
-                  <%= current_user.name %>
+                  <%= current_user.name || current_user.username%>
                 <% end %>
 
                 <ul class="dropdown-menu">
                   <li>
-                    <%= link_to t('app.profile'), current_user,
-                                class: 'dropdown-item' %>
+                    <%= link_to t('app.profile'), current_user, class: 'dropdown-item' %>
                   </li>
 
                   <li><hr class="dropdown-divider"></li>
 
                   <li>
-                    <%= link_to t('app.sign_out'), destroy_user_session_path,
-                                class: 'dropdown-item', data: {method: :delete} %>
+                    <%= link_to t('app.sign_out'), destroy_user_session_path, class: 'dropdown-item', data: {method: :delete} %>
                   </li>
                 </ul>
               </li>
@@ -74,7 +72,7 @@
       </div>
     </header>
 
-    <main class="container mt-3">
+    <main class="bg-light container mt-3">
       <%# Вывод уведомлений для пользователя %>
       <% flash.each do |k,v| %>
         <%= tag.div v, class: " alert alert-#{k}", role: 'alert' %>
@@ -83,7 +81,7 @@
       <%= yield %>
     </main>
 
-    <footer class="text-center buffer-top">
+    <footer class="text-center mt-4">
       <p>&copy; Company 2021</p>
     </footer>
   </body>

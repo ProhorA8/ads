@@ -39,7 +39,7 @@ en:
   admin:
     users:
       index:
-        count_users: 'Count of users'
+        count_users: 'Count of users: %{count}'
         hash: '#'
         name: 'Name'
         email: 'Email'
@@ -52,6 +52,7 @@ en:
       delete_image: 'Delete image'
       placeholder_info: 'Describe the product or service in detail'
       save: 'Save'
+      or: 'or'
     edit:
       edit_ad: 'Edit ad'
     index:

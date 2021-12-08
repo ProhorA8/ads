@@ -1,25 +1,29 @@
-<%# Форма пользователя %>
-<%= form_for @user, html: {multipart: true} do |f| %>
+<%# Форма редактирования пользователя %>
+<div class="row">
+  <div class="col-md-4 my-4">
+    <%= form_for @user, html: {multipart: true} do |f| %>
 
-  <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control' %>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :username %>
+        <%= f.text_field :username, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.text_field :email, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :role %>
+        <%= f.select(:role, options_for_select([['admin'], ['user']], @user.role), {include_blank: true}, class: 'form-control') %>
+      </div>
+      <div class="actions mt-4">
+        <%= f.submit t '.save', class: 'btn btn-success' %>
+        <%= t '.or' %>
+        <%= link_to t('.back'), @user %><br>
+      </div>
+    <% end %>
   </div>
-  <div class="form-group">
-    <%= f.label :username %>
-    <%= f.text_field :username, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :email %>
-    <%= f.text_field :email, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :role %>
-    <%= f.select(:role, options_for_select([['admin'], ['user']], @user.role), {include_blank: true}, class: 'form-control') %>
-  </div>
-  <div class="actions buffer-both">
-    <%= f.submit t '.save', class: 'btn btn-success' %>
-    <%= t '.or' %>
-    <%= link_to t('.back'), @user %><br>
-  </div>
-<% end %>
+</div>

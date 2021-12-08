@@ -1,6 +1,6 @@
 <%# Форма для создания/правки объявления %>
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-md-4 my-4">
     <div class="form">
       <%= form_for @ad, html: { multipart: true } do |f| %>
         <%= render partial: 'partials/form_errors', locals: {model: @ad} %>
@@ -37,8 +37,10 @@
           <%= f.select(:life_cycle, options_for_select([['approved'], ['rejected']], @ad.life_cycle), {include_blank: true}, class: 'form-control') %>
         </div>
 
-        <div class="form-action buffer-both">
-          <%= f.submit t '.save', class: 'btn btn-primary' %>
+        <div class="form-action mt-4">
+          <%= f.submit t '.save' %>
+          <%= t '.or' %>
+          <%= link_to t('ads.back'), :back %>
         </div>
       <% end %>
     </div>

@@ -40,7 +40,7 @@ ru:
   admin:
     users:
       index:
-        count_users: 'Количество пользователей'
+        count_users: 'Количество пользователей: %{count}'
         hash: '#'
         name: 'Имя'
         email: 'Почта'
@@ -53,6 +53,7 @@ ru:
       delete_image: 'Удалить изображение'
       placeholder_info: 'Подробно опишите товар или услугу'
       save: 'Сохранить'
+      or: 'или'
     edit:
       edit_ad: 'Редактировать объявление'
     index:
@@ -84,7 +85,7 @@ ru:
       back: 'Назад'
     edit:
       edit_user: 'Редактирование пользователя'
-      change_password: 'Изменить пароль/Удалить профиль'
+      change_password: 'Изменить пароль / Удалить профиль'
     show:
       name: 'Имя'
       username: 'Псевдоним'
@@ -150,3 +151,6 @@ ru:
         didn't_receive_confirmation_instructions: 'Не получили инструкции по подтверждению?'
         didn't_receive_unlock_instructions: 'Не получили инструкции по разблокировке?'
         sign_in_with: 'Войти в систему с'
+    unlocks:
+      new:
+        resend_unlock_instructions: 'Отправить инструкции по разблокировке повторно'

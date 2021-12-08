@@ -18,17 +18,21 @@
   </tbody>
 </table><br>
 
-<% if @user == current_user %>
-    <%= link_to t('.edit_user'), edit_user_path(@user), class: 'btn btn-default' %>
-<% end %>
-  <%= link_to t('.root'), root_path, class: 'btn btn-default' %><br>
+<div class="my-4">
+  <% if @user == current_user %>
+      <%= link_to t('.edit_user'), edit_user_path(@user), class: 'btn btn-outline-secondary' %>
+  <% end %>
+  <%= link_to t('.root'), root_path, class: 'btn btn-outline-secondary' %><br>
+</div>
 
 <%# Ссылка создания объявления пользователя с проверкой через pundit %>
-<% if policy(Ad).create? %>
-  <%= link_to t('.create_ad'), new_ad_path, class: 'buffer-top btn btn-success' %>
-<% end %>
+<div>
+  <% if policy(Ad).create? %>
+    <%= link_to t('.create_ad'), new_ad_path, class: 'btn btn-outline-success' %>
+  <% end %>
+</div>
 
-<div class="text-lg buffer-both">
+<div class="my-4 text-muted">
   <% if @user == current_user %>
     <%= t '.my_ads' %>
   <% end %>
@@ -36,9 +40,9 @@
 
 <%# Вывод всех объявлений пользователя %>
 <% if @ads.any? %>
-  <%= render partial: 'ads/ad', collection: @ads, class: 'buffer-both' %>
+  <%= render partial: 'ads/ad', collection: @ads %>
 <% else %>
-  <p class="buffer-top">
+  <p class="my-4">
     <%= t '.info' %>
   </p>
 <% end %>
