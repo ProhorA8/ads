@@ -12,10 +12,8 @@ class AdsController < ApplicationController
 
   def index
     @tags = Tag.where(id: params[:tag_ids]) if params[:tag_ids]
-    @ads = policy_scope(Ad.all_by_tags(@tags))
-
     # kaminari – .page(params[:page])
-    @ads_all = policy_scope(Ad.order(created_at: :desc).page(params[:page]))
+    @ads = policy_scope(Ad.all_by_tags(@tags).page(params[:page]))
   end
 
   def show; end
