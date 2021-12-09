@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+  namespace :api do
+    resources :tags, only: :index
+  end
+
   # не обязателная локаль
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
 
@@ -7,7 +12,7 @@ Rails.application.routes.draw do
     root 'ads#index'
 
     resources :users
-    resources :tags, only: :index
+
     resources :ads
 
     namespace :admin do

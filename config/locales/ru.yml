@@ -57,7 +57,7 @@ ru:
     edit:
       edit_ad: 'Редактировать объявление'
     index:
-      found_tags: 'Найденные теги'
+      found_tags: 'Поиск по тегам'
       search: 'Поиск'
     new:
       new_ad: 'Новое объявление'
@@ -107,7 +107,7 @@ ru:
 
   # Перевод для стартовой страницы
   app:
-    tab_title: 'Ads'
+    tab_title: 'Домашняя'
     name: 'Объявления'
     profile: 'Профиль'
     sign_out: 'Выйти'

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html data-lang="<%= I18n.locale %>">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,19 +10,26 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body data-lang="<%= I18n.locale %>">
     <header class="p-3 bg-dark text-white">
       <div class="container">
         <nav class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
 
-          <%# Пользователь %>
+          <%# Home ссылка %>
           <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+            <li><%= link_to t('app.tab_title'), root_path,
+                            class: 'px-0 fs-4 nav-link link-info' %>
+            </li>
+          </ul>
+
+          <%# Пользователь %>
+          <ul class="nav col-12 col-lg-auto mb-2 mb-md-0">
             <% if user_signed_in? %>
               <li class="dropdown">
                 <%= link_to '#',
                             class: 'nav-link px-2 dropdown-toggle text-white',
                             data: {"bs-toggle": 'dropdown'} do %>
-                  <%= current_user.name || current_user.username%>
+                  <%= current_user.name || current_user.username %>
                 <% end %>
 
                 <ul class="dropdown-menu">
@@ -72,8 +79,8 @@
       </div>
     </header>
 
-    <main class="bg-light container mt-3">
-      <%# Вывод уведомлений для пользователя %>
+    <%# Вывод уведомлений для пользователя %>
+    <main class="bg-light container my-4 py-2">
       <% flash.each do |k,v| %>
         <%= tag.div v, class: " alert alert-#{k}", role: 'alert' %>
       <% end %>

@@ -15,6 +15,8 @@ gem 'devise-i18n'
 gem 'i18n'
 # Помошник по обработке изображений
 gem 'image_processing'
+# Предоставляет DSL для объявления структур JSON
+gem 'jbuilder'
 # Помощник нумерации страниц
 gem 'kaminari'
 # Для работы carrierwave с хранилищем Amazon S3

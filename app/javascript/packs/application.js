@@ -25,6 +25,7 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "bootstrap"
+import '../scripts/select2'
 
 // stylesheets
 import "../stylesheets/main.scss"

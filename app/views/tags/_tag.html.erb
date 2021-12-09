@@ -1,4 +1,4 @@
-<%# Ссылка-тег объявления %>
+<%# Ссылка-тег объявления, при нажатии выбираются только объявления принадлежащие тегу %>
 <%= link_to ads_path(tag_ids: tag),
   class: 'badge rounded-pill bg-light text-dark d-inline-block pt-1 pb-2 me-2' do %>
   <%= tag.name %>

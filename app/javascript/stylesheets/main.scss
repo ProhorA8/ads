@@ -1,3 +1,6 @@
 //тильды в webpack конфигурация по умолчанию, которая разрешается в node_modules папке.
 @import "~bootstrap/scss/bootstrap";
 @import "internationalization";
+
+@import '~select2';
+@import '~select2-bootstrap-5-theme';

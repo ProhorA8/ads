@@ -2,8 +2,8 @@
 <div class="row">
   <div class="col-md-4 my-4">
     <div class="form">
-      <%= form_for @ad, html: { multipart: true } do |f| %>
-        <%= render partial: 'partials/form_errors', locals: {model: @ad} %>
+      <%= form_with model: ad do |f| %>
+        <%= render partial: 'partials/form_errors', locals: {model: ad} %>
 
         <div class="form-field">
           <%= f.label :title %>
@@ -19,13 +19,21 @@
           <%= f.label :tags %>
         </div>
 
+        <%#
+          collection_select – через дропдаун выбираем тэги
+          tag_ids – название поля
+          ad.tags – передадим коллекцию
+          id – метод при отображении id в разметке
+          name – то что видет пользователь
+        %>
         <div class="form-field">
-          <%= f.collection_select :tag_ids, tags, :id, :name, {}, multiple: true %>
+          <%= f.collection_select :tag_ids, ad.tags, :id, :name, {}, multiple: true,
+                                  class: 'js-multiple-select js-ajax-select w-100', data: {'ajax-url': '/api/tags'} %>
         </div>
 
         <div class="field">
           <%= f.label :images %>
-          <% @ad.images.each do |image| %>
+          <% ad.images.each do |image| %>
             <p><%= image_tag image.variant resize: "100x100" %></p>
             <%= link_to t('.delete_image'), purge_attachment_path(image),method: :delete %><br /><br />
           <% end %>
@@ -34,7 +42,8 @@
 
         <div class="form-field">
           <%= f.label :life_cycle %>
-          <%= f.select(:life_cycle, options_for_select([['approved'], ['rejected']], @ad.life_cycle), {include_blank: true}, class: 'form-control') %>
+          <%= f.select(:life_cycle, options_for_select([['approved'], ['rejected']], ad.life_cycle),
+                       {include_blank: true}, class: 'form-control') %>
         </div>
 
         <div class="form-action mt-4">
