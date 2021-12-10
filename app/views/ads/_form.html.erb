@@ -41,8 +41,8 @@
         </div>
 
         <div class="form-field">
-          <%= f.label :life_cycle %>
-          <%= f.select(:life_cycle, options_for_select([['approved'], ['rejected']], ad.life_cycle),
+          <%= f.label :status %>
+          <%= f.select(:status, options_for_select([['approved'], ['rejected']], ad.status),
                        {include_blank: true}, class: 'form-control') %>
         </div>
 

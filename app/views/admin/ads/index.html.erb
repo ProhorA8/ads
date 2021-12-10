@@ -1,0 +1,21 @@
+<%# Главная страница объявлений для админки %>
+<%#= t('.user management') %>
+<h1 class="mb-4"><%= t('.ad_management') %></h1>
+
+<table class="table table-striped table-hover">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col"><%= t('.title') %></th>
+    <th scope="col"><%= t('.status') %></th>
+    <th scope="col"><%= t('.life_cycle') %></th>
+    <th scope="col"><%= t('.created_at') %></th>
+    <th scope="col"><%= t('.updated_at') %></th>
+    <th scope="col"><%= t('.username') %></th>
+    <th scope="col"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <%= render @ads %>
+  </tbody>
+</table>

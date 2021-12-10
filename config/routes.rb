@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
     namespace :admin do
       resources :users, only: %i[index edit update destroy]
+      resources :ads, only: %i[index edit update destroy]
     end
 
     delete 'attachments/:id/purge/', to: 'attachments#purge', as: 'purge_attachment'

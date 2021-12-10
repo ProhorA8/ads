@@ -78,6 +78,6 @@ class AdsController < ApplicationController
   end
 
   def ad_params
-    params.require(:ad).permit(:title, :body, :life_cycle, tag_ids: [], images: [])
+    params.require(:ad).permit(:title, :body, :status, tag_ids: [], images: [])
   end
 end

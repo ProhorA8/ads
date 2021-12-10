@@ -21,13 +21,17 @@ ru:
       ad:
         title: 'Заголовок'
         body: 'Описание'
-        life_cycle: 'Статус'
+        life_cycle: 'Жизненный цикл'
         tags: 'Тэг'
         images: 'Изображение'
+        status: 'Статус'
 
   # Перевод сообщений, которые отправляет контроллер
   controllers:
     admin:
+      ads:
+        updated: 'Объявление обнавлено!'
+        destroyed: 'Объявление удалено!'
       users:
         updated: 'Пользователь обновлён!'
         destroyed: 'Пользователь удалён!'
@@ -43,6 +47,22 @@ ru:
 
   # Перевод сообщений, которые отправляет вьюха
   admin:
+    ads:
+      ad:
+        confirm: 'Вы уверены?'
+      form:
+        save: 'Сохранить'
+        back: 'Назад'
+      edit:
+        edit_ad: 'Редактировать объявление'
+      index:
+        ad_management: 'Управление объявлениями'
+        title: 'Заголовок'
+        status: 'Статус'
+        life_cycle: 'Жизненный цикл'
+        created_at: 'Создано'
+        updated_at: 'Обнавлено'
+        username: 'Владелец'
     users:
       form:
         save: 'Сохранить'
@@ -52,7 +72,7 @@ ru:
       edit:
         edit_user: 'Редактировать пользователя'
       index:
-        user management: 'Управление пользователями'
+        user_management: 'Управление пользователями'
         count_users: 'Количество пользователей: %{count}'
         hash: '#'
         name: 'Имя'

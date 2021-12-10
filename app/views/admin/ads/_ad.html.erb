@@ -1,0 +1,15 @@
+<%# Паршал для вывода объявления в таблице %>
+<tr>
+  <th scope="row"><%= ad.id %></th>
+  <td><%= ad.title %></td>
+  <td><%= ad.status %></td>
+  <td><%= ad.life_cycle %></td>
+  <td><%= l(ad.created_at, format: :short ) %></td>
+  <td><%= l(ad.updated_at, format: :short ) %></td>
+  <td><%= ad.user.username %></td>
+  <td>
+    <%= link_to 'Edit', edit_admin_ad_path(ad), class: 'btn btn-secondary' %>
+    <%= link_to 'Delete', admin_ad_path(ad), class: 'btn btn-danger',
+                data: {method: :delete, confirm: t('.confirm')} %>
+  </td>
+</tr>

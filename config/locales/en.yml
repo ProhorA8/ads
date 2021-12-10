@@ -41,6 +41,22 @@ en:
 
   # Translation of messages sent by the view
   admin:
+    ads:
+      ad:
+        confirm: 'Are you sure?'
+      form:
+        save: 'Save'
+        back: 'Back'
+      edit:
+        edit_ad: 'Edit ad'
+      index:
+        ad_management: 'Manage ads'
+        title: 'Title'
+        status: 'Status'
+        life_cycle: 'Life cycle'
+        created_at: 'Created'
+        updated_at: 'Updated'
+        username: 'Username'
     users:
       form:
         save: 'Save'
@@ -50,7 +66,7 @@ en:
       edit:
         edit_user: 'Edit user'
       index:
-        user management: 'User management'
+        user_management: 'User management'
         count_users: 'Count of users: %{count}'
         hash: '#'
         name: 'Name'
