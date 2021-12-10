@@ -1,6 +1,17 @@
 en:
-  en: English
-  ru: Russian
+  en: 'English'
+  ru: 'Russian'
+
+  global:
+    ad:
+      statuses:
+        approved: 'approved'
+        rejected: 'rejected'
+    user:
+      roles:
+        user: 'user'
+        admin: 'admin'
+
   # Model translation
   activerecord:
     models:
@@ -87,7 +98,7 @@ en:
       found_tags: 'Search by tags'
       search: 'Search'
     new:
-      new_ad: 'New announcement'
+      new_ad: 'New ad'
     show:
       delete_image: 'Delete image'
       edit: 'Edit'

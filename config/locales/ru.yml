@@ -1,6 +1,16 @@
 ru:
-  en: Английский
-  ru: Русский
+  en: 'Английский'
+  ru: 'Русский'
+
+  global:
+    ad:
+      statuses:
+        approved: 'подтверждена'
+        rejected: 'отклонена'
+    user:
+      roles:
+        user: 'пользователь'
+        admin: 'админ'
 
   # Перевод моделей
   activerecord:

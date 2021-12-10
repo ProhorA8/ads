@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  # _suffix: :role – добавляет суффикс, если user.role = 'admin', то user.admin_role? вернёт true
+  enum role: { user: 'user', admin: 'admin' }, _suffix: :role
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   # :database_authenticatable предполагает, что в БД есть информация о том, какой у пользователя password_hash.

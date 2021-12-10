@@ -40,12 +40,6 @@
           <%= f.file_field :images, multiple: true, required: true %>
         </div>
 
-        <div class="form-field">
-          <%= f.label :status %>
-          <%= f.select(:status, options_for_select([['approved'], ['rejected']], ad.status),
-                       {include_blank: true}, class: 'form-control') %>
-        </div>
-
         <div class="form-action mt-4">
           <%= f.submit t '.save' %>
           <%= t '.or' %>

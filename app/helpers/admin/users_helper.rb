@@ -2,9 +2,11 @@
 module Admin
   module UsersHelper
     def user_roles
-      roles = ['Пользователь','Админ']
-      roles.map do |role|
-        [role]
+      User.roles.keys.map do |role|
+        # рендерим в селекте
+        # [t(role, scope: 'global.user.roles'), ...] – название роли
+        # [..., role] –  ключ соответствующий ключу в модели
+        [t(role, scope: 'global.user.roles'), role]
       end
     end
   end
