@@ -68,9 +68,6 @@ en:
   partials:
     form_errors:
       info: "In your form %{count} error"
-  tags:
-    show:
-      title: 'List of ads for the tag – %{tag_name}'
   users:
     form:
       save: 'Save'
@@ -90,7 +87,6 @@ en:
       info: 'User has not created an ad yet'
       edit_user: 'Edit profile'
       root: 'To main'
-      edit: 'Edit'
       my_ads: 'My announcements'
   # For pagination
   pagination:
@@ -102,8 +98,7 @@ en:
 
   # Translation for the start page
   app:
-    tab_title: 'Home'
-    name: 'Ads'
+    tab_title: 'Ads'
     profile: 'Profile'
     sign_out: 'Sign out'
     sign_in: 'Sign in'
