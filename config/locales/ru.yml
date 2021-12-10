@@ -27,6 +27,10 @@ ru:
 
   # Перевод сообщений, которые отправляет контроллер
   controllers:
+    admin:
+      users:
+        updated: 'Пользователь обновлён!'
+        destroyed: 'Пользователь удалён!'
     attachments:
       image_delete: 'Изображение удалено'
     ads:
@@ -40,7 +44,15 @@ ru:
   # Перевод сообщений, которые отправляет вьюха
   admin:
     users:
+      form:
+        save: 'Сохранить'
+        back: 'Назад'
+      user:
+        confirm: 'Вы уверены?'
+      edit:
+        edit_user: 'Редактировать пользователя'
       index:
+        user management: 'Управление пользователями'
         count_users: 'Количество пользователей: %{count}'
         hash: '#'
         name: 'Имя'

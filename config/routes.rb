@@ -12,11 +12,10 @@ Rails.application.routes.draw do
     root 'ads#index'
 
     resources :users
-
     resources :ads
 
     namespace :admin do
-      resources :users, only: :index
+      resources :users, only: %i[index edit update destroy]
     end
 
     delete 'attachments/:id/purge/', to: 'attachments#purge', as: 'purge_attachment'

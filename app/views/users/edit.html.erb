@@ -1,7 +1,7 @@
 <%# Страница редактирования пользователя %>
 <h1><%= t '.edit_user' %></h1>
 
-<%= render 'form' %><br>
+<%= render 'form', user: @user %><br>
 
 <%# Ссылка на смену пароля текущего залогиненного юзера (этот путь генерит девайз) %>
 <%= link_to t('.change_password'), edit_user_registration_path %>

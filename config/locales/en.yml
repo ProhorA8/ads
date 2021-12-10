@@ -25,6 +25,10 @@ en:
 
   # Translating messages sent by the controller
   controllers:
+    admin:
+      users:
+        updated: 'User updated!'
+        destroyed: 'User deleted!'
     attachments:
       image_delete: 'Image deleted'
     ads:
@@ -38,7 +42,15 @@ en:
   # Translation of messages sent by the view
   admin:
     users:
+      form:
+        save: 'Save'
+        back: 'Back'
+      user:
+        confirm: 'Are you sure?'
+      edit:
+        edit_user: 'Edit user'
       index:
+        user management: 'User management'
         count_users: 'Count of users: %{count}'
         hash: '#'
         name: 'Name'
