@@ -85,6 +85,7 @@ en:
         created_at: 'Created by'
         updated_at: 'Updated'
         role: 'Role'
+
   ads:
     back: 'Back'
     form:
@@ -104,9 +105,11 @@ en:
       edit: 'Edit'
       delete: 'Delete'
       confirm_delete: 'Are you sure you want to remove the ad?'
+
   partials:
     form_errors:
       info: "In your form %{count} error"
+
   users:
     form:
       save: 'Save'
@@ -127,6 +130,7 @@ en:
       edit_user: 'Edit profile'
       root: 'To main'
       my_ads: 'My announcements'
+
   # For pagination
   pagination:
     first: "&laquo; First"
@@ -155,3 +159,44 @@ en:
 
   pundit:
     not_authorized: 'This is not allowed for you!'
+
+  devise:
+    confirmations:
+      resend_instructions: 'Resend confirmation instructions'
+      resend: 'Send'
+    omniauth_callbacks:
+      failure: "Could not authenticate you from %{kind} because authentication error."
+      success: "Successfully authenticated from %{kind} account."
+    passwords:
+      change_your_password: 'Change your password'
+      change_my_password: 'Change Password'
+      forgot_your_password: 'Forgot your password?'
+      characters_minimum: 'minimum %{password_length} characters'
+      send_reset_password_instructions: 'Send me instructions to reset your password'
+    registrations:
+      edit_profile: 'Edit profile'
+      waiting_confirmation: 'Currently awaiting confirmation for: %{unconfirmed_email}'
+      leave_blank_change: "leave the field blank if you don't want to change it"
+      current_password: 'we need your current password to confirm your changes'
+      update: 'Update'
+      cancel_my_account: 'Delete my account?'
+      btn_cancel_my_account: 'Delete'
+      registration: 'Registration'
+      characters_minimum: 'minimum %{password_length} characters'
+      sign_up: 'Sign up'
+      back: 'Back'
+    sessions:
+      new:
+        log_in: 'Log in'
+        come_in: 'Come in'
+    shared:
+      links:
+        log_in: 'log in'
+        registration: 'Registration'
+        forgot_your_password: 'Forgot your password?'
+        didn't_receive_confirmation_instructions: "Didn't receive confirmation instructions?"
+        didn't_receive_unlock_instructions: "Didn't receive unlock instructions?"
+        sign_in_with: 'Sign in with'
+    unlocks:
+      new:
+        resend_unlock_instructions: 'Resend unlock instructions'

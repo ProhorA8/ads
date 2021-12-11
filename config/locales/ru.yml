@@ -90,6 +90,7 @@ ru:
         created_at: 'Создан'
         updated_at: 'Обновлён'
         role: 'Роль'
+
   ads:
     back: 'Назад'
     form:
@@ -109,9 +110,11 @@ ru:
       edit: 'Редактировать'
       delete: 'Удалить'
       confirm_delete: 'Точно удалить объявление?'
+
   partials:
     form_errors:
       info: "В вашей форме %{count} ошибок"
+
   users:
     form:
       save: 'Сохранить'
@@ -132,6 +135,7 @@ ru:
       edit_user: 'Редактировать профиль'
       root: 'На главную'
       my_ads: 'Мои объявления'
+
   # Для пагинации
   pagination:
     first: "&laquo; Первая"
@@ -155,6 +159,9 @@ ru:
     confirmations:
       resend_instructions: 'Отправить инструкции по подтверждению повторно'
       resend: 'Отправить'
+    omniauth_callbacks:
+      failure: "Не удалось аутентифицировать вас для %{kind} так как ошибка аутентификации."
+      success: "Успешно аутентифицирован для %{kind} акаунта."
     passwords:
       change_your_password: 'Измените свой пароль'
       change_my_password: 'Изменить пароль'

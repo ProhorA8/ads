@@ -25,6 +25,10 @@ gem 'fog-aws'
 gem 'pundit'
 # Шаблонизатор для HTML
 gem 'haml'
+# Стандартизированная аутентификация нескольких провайдеров
+gem 'omniauth'
+# Аутентификация для facebook
+gem 'omniauth-facebook'
 # Используйте Puma в качестве сервера приложений
 gem 'puma'
 # Среда веб-приложения

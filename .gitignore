@@ -21,9 +21,6 @@
 /storage/*
 !/storage/.keep
 
-/node_modules
-/yarn-error.log
-
 /public/assets
 /public/uploads
 .byebug_history
@@ -38,7 +35,3 @@ yarn-debug.log*
 
 /public/packs
 /public/packs-test
-/node_modules
-/yarn-error.log
-yarn-debug.log*
-.yarn-integrity
