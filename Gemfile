@@ -43,6 +43,8 @@ gem 'rails-i18n'
 gem 'rmagick'
 # Windows не включает файлы zoneinfo, поэтому свяжите гем tzinfo-data
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+# Для компиляции JS
+gem 'uglifier'
 # Упрощает использование препроцессора JavaScript и сборщика Webpack v5
 gem 'webpacker'
 
