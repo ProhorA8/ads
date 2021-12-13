@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # Assuming you have not yet modified this file, each configuration option below
 # is set to its default value. Note that some are commented out while others
 # are not: uncommented lines are intended to protect your configuration from
@@ -271,11 +269,21 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+  config.omniauth :github, ENV['GITHUB_ID'], ENV['GITHUB_SECRET']
+  config.omniauth :facebook, ENV['FACEBOOK_ID'], ENV['FACEBOOK_SECRET']
+  config.omniauth :vkontakte, ENV['VK_ID'], ENV['VK_SECRET']
+
+  # if Rails.application.credentials.omniauth.present?
+  #   # Настройки, которые достают ключи из credentials.yml.enc
+  #   # omniauth:
+  #   #   omniauth_facebook_id: 1234567890123456
+  #   #   omniauth_facebook_secret: 12345678901234567890123456789012
+  #   config.omniauth :facebook, Rails.application.credentials.omniauth[:omniauth_facebook_id],
+  #                   Rails.application.credentials.omniauth[:omniauth_facebook_secret]
   #
-  # Настройки, которые достают ключи из credentials.yml.enc
-  config.omniauth :facebook, Rails.application.secrets.omniauth_facebook_id,
-                  Rails.application.secrets.omniauth_facebook_secret
+  #   config.omniauth :vkontakte, Rails.application.credentials.omniauth[:omniauth_vkontakte_id],
+  #                   Rails.application.credentials.omniauth[:omniauth_vkontakte_secret]
+  # end
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

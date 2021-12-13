@@ -25,10 +25,14 @@ gem 'fog-aws'
 gem 'pundit'
 # Шаблонизатор для HTML
 gem 'haml'
-# Стандартизированная аутентификация нескольких провайдеров
-gem 'omniauth'
+# Обеспечивает защиту от CVE-2015-9284, реализации верификатора токена CSRF
+gem 'omniauth-rails_csrf_protection'
 # Аутентификация для facebook
 gem 'omniauth-facebook'
+# Аутентификация для vkontakte
+gem 'omniauth-vkontakte'
+# Аутентификация для github
+gem 'omniauth-github'
 # Используйте Puma в качестве сервера приложений
 gem 'puma'
 # Среда веб-приложения
@@ -37,8 +41,6 @@ gem 'rails', '~> 6.1.3', '>= 6.1.3.2'
 gem 'rails-i18n'
 # Гем для обработки картинок
 gem 'rmagick'
-# Используйте sqlite3 в качестве базы данных для Active Record
-gem 'sqlite3'
 # Windows не включает файлы zoneinfo, поэтому свяжите гем tzinfo-data
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 # Упрощает использование препроцессора JavaScript и сборщика Webpack v5
@@ -60,6 +62,8 @@ group :development, :test do
   gem 'rubocop'
   # Ускоряет написание тестов
   gem 'shoulda-matchers'
+  # Используйте sqlite3 в качестве базы данных для Active Record
+  gem 'sqlite3'
 end
 
 group :development do

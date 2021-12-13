@@ -19,6 +19,14 @@ Lint/RaiseException:
 Lint/StructNewOverride:
   Enabled: true
 
+# Проверяет превышает ли длина блока какое-то максимальное значение
+Metrics/BlockLength:
+  Max: 35
+
+# Проверяет превышает ли длина метода какое-то максимальное значение
+Metrics/MethodLength:
+  Max: 15
+
 # Использование методов хеширования
 Style/HashEachMethods:
   Enabled: true
