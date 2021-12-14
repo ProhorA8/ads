@@ -8,7 +8,7 @@ class Ad < ApplicationRecord
   has_many :tags, through: :tag_ads
   has_many_attached :images
 
-  validates :title, :body, :status, presence: true
+  validates :title, :body, presence: true
 
   # scope :all_by_tags = def self.all_by_tags
   scope :all_by_tags, lambda { |tags|

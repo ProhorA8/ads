@@ -1,5 +1,5 @@
 const { environment } = require('@rails/webpacker')
-// Добавления библиотек зависимостей во все пакеты javascript вместо того, чтобы импортировать их повсюду
+// Добавления библиотек зависимостей во все пакеты javascripts вместо того, чтобы импортировать их повсюду
 const webpack = require('webpack')
 
 environment.plugins.append('Provide', new webpack.ProvidePlugin({
