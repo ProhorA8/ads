@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.3'
+ruby '2.7.5'
 
 # Уменьшает время загрузки за счет кэширования, требуется в config/boot.rb
 gem 'bootsnap', require: false
@@ -43,8 +43,6 @@ gem 'rails-i18n'
 gem 'rmagick'
 # Windows не включает файлы zoneinfo, поэтому свяжите гем tzinfo-data
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-# Для компиляции JS
-gem 'uglifier'
 # Упрощает использование препроцессора JavaScript и сборщика Webpack v5
 gem 'webpacker'
 

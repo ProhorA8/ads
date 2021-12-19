@@ -1,7 +1,7 @@
 # Note: You must restart bin/webpack-dev-server for changes to take effect
 
 default: &default
-  source_path: app/javascripts
+  source_path: app/javascript
   source_entry_path: packs
   public_root_path: public
   public_output_path: packs
@@ -16,8 +16,6 @@ default: &default
   cache_manifest: false
 
   # Extract and emit a css file
-  # Таблицы стилей не компилируются в отдельные файлы, они добавляются в представление,
-  # после того, как файл javascripts будет полностью загружен браузером
   extract_css: false
 
   static_assets_extensions:

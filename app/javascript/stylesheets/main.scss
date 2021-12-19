@@ -1,6 +1,4 @@
-//тильды в webpack конфигурация по умолчанию, которая разрешается в node_modules папке.
-@import "~bootstrap/scss/bootstrap";
+// ~ – тильда в webpack, конфигурация по умолчанию, которая разрешает доступ к папке node_modules.
 @import "internationalization";
-
-@import '~select2';
-@import '~select2-bootstrap-5-theme';
+@import "select2";
+@import "select2-bootstrap-5-theme";
