@@ -14,8 +14,9 @@
       <% if @ad.images.attached? %>
         <% @ad.images.each do |image| %>
           <% if image.image? %>
-            <%=link_to image_tag(image.variant resize: "100x100"), ads_path %><br />
-            <%= link_to t('.delete_image'), purge_attachment_path(image),method: :delete %><br /><br />
+            <div class="d-inline-block">
+              <%=link_to image_tag(image.variant resize: "100x100"), image %><br />
+            </div>
           <% else %>
             <%= link_to image.filename, rails_blob_path(image, disposition: "attachment") %>
           <% end %>
