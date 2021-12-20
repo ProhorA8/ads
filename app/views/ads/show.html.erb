@@ -9,8 +9,8 @@
       <%= @ad.body %>
     </div>
 
-    <div class="col-md-6">
-      <%# Все фотографии объявления %>
+    <%# Все фотографии объявления %>
+    <div class="col-md-6 my-2">
       <% if @ad.images.attached? %>
         <% @ad.images.each do |image| %>
           <% if image.image? %>
@@ -24,18 +24,23 @@
       <% end %>
     </div>
 
-    <div class="my-4">
-      <% if current_user_can_edit?(@ad) %>
+    <%# Только владелец может править %>
+    <% if current_user_can_edit?(@ad) %>
+      <div class="my-4">
         <%= link_to t('.edit'), edit_ad_path(@ad), class: 'btn btn-outline-warning btn-sm' %>
         <%= link_to t('.delete'), ad_path(@ad),
                     method: :delete, data: {confirm: t('.confirm_delete')}, class: 'btn btn-outline-danger btn-sm' %>
-    </div>
+      </div>
 
+      <%# Выводим статус %>
       <div class="my-1 text-muted">
         <%= @ad.status %>
       </div>
     <% end %>
 
-    <%= link_to t('ads.back'), user_path(current_user) %>
+    <%# Показываем только для владельца объявления, ссылка назад в свой профиль %>
+    <% if policy(@ad).show? %>
+      <%= link_to t('ads.back'), user_path(current_user) %>
+    <% end %>
   </div>
 </div>

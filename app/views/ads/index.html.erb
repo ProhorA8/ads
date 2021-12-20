@@ -1,24 +1,22 @@
-<% if current_user.present? %>
-  <form class="py-4">
-    <h4><%= t '.found_tags' %></h4>
+<form class="py-4">
+  <h4><%= t '.found_tags' %></h4>
 
-    <%#
-      {selected: params[:tag_ids]} – когда форма отправиться и страница перерисуется, выберем все теги которые выбрали для посика
-      required: true – чтобы не отправилась пустая форма
-      используем асинхронный запрос, вынимаем теги выбранные пользователем из /api/tags
-    %>
-    <%= form_with url: ads_path, method: :get do |f| %>
-      <%= f.collection_select :tag_ids, (@tags || []), :id, :name, {selected: params[:tag_ids]},
-                              multiple: true, required: true,
-                              class: 'js-multiple-select js-ajax-select w-100', data: {'ajax-url': '/api/tags'} %><br />
+  <%#
+    {selected: params[:tag_ids]} – когда форма отправиться и страница перерисуется, выберем все теги которые выбрали для посика
+    required: true – чтобы не отправилась пустая форма
+    используем асинхронный запрос, вынимаем теги выбранные пользователем из /api/tags
+  %>
+  <%= form_with url: ads_path, method: :get do |f| %>
+    <%= f.collection_select :tag_ids, (@tags || []), :id, :name, {selected: params[:tag_ids]},
+                            multiple: true, required: true,
+                            class: 'js-multiple-select js-ajax-select w-100', data: {'ajax-url': '/api/tags'} %><br />
 
-      <button class="my-2">
-        <%= f.submit t '.search' %>
-      </button>
-    <% end %>
-  </form>
-<% end %>
-
+    <%# Кнопка Поиск %>
+    <button class="my-2">
+      <%= f.submit t '.search' %>
+    </button>
+  <% end %>
+</form>
 
 <%# Пагинация, если объявлений больше 5 шт. %>
 <div class="text-center">

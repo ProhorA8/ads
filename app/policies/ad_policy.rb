@@ -1,6 +1,11 @@
 class AdPolicy < ApplicationPolicy
+  # все могут просматривать объявления
   def show?
-    update?
+    edit?
+  end
+
+  def edit?
+    user_is_owner?(record)
   end
 
   def update?
