@@ -32,9 +32,9 @@
                     method: :delete, data: {confirm: t('.confirm_delete')}, class: 'btn btn-outline-danger btn-sm' %>
       </div>
 
-      <%# Выводим статус %>
+      <%# Выводим статус, перевод с помощью translation_status, в ads_helper.rb %>
       <div class="my-1 text-muted">
-        <%= @ad.status %>
+        <%= t('.ad_status', status: translation_status(@ad.status)) %>
       </div>
     <% end %>
 

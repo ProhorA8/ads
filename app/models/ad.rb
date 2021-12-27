@@ -1,6 +1,6 @@
 class Ad < ApplicationRecord
   # _suffix: :status – добавляет суффикс, если ad.status = 'approved', то ad.approved_status? вернёт true
-  enum status: { approved: 'approved', rejected: 'rejected' }, _suffix: :status
+  enum status: { in_progress: 'in progress', approved: 'approved', rejected: 'rejected' }, _suffix: :status
 
   belongs_to :user
 

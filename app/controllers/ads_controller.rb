@@ -25,6 +25,8 @@ class AdsController < ApplicationController
 
   def create
     @ad = current_user.ads.build(ad_params)
+    # устанавливаем статус по дефолту – in progress, либо можно через новую миграцию
+    @ad.status = 'in progress'
     authorize @ad
 
     if @ad.save

@@ -5,6 +5,7 @@ en:
   global:
     ad:
       statuses:
+        in_progress: 'in progress'
         approved: 'approved'
         rejected: 'rejected'
     user:
@@ -106,6 +107,7 @@ en:
       edit: 'Edit'
       delete: 'Delete'
       confirm_delete: 'Are you sure you want to remove the ad?'
+      ad_status: 'Ad status: %{status}'
 
   partials:
     form_errors:

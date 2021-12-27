@@ -5,6 +5,7 @@ ru:
   global:
     ad:
       statuses:
+        in_progress: 'в процессе'
         approved: 'подтверждена'
         rejected: 'отклонена'
     user:
@@ -111,6 +112,7 @@ ru:
       edit: 'Редактировать'
       delete: 'Удалить'
       confirm_delete: 'Точно удалить объявление?'
+      ad_status: 'Статус объявления: %{status}'
 
   partials:
     form_errors:
