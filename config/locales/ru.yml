@@ -61,6 +61,7 @@ ru:
       ad:
         confirm: 'Вы уверены?'
       form:
+        all_ad_tags: 'Все теги объявления'
         save: 'Сохранить'
         back: 'Назад'
       edit:

@@ -15,11 +15,19 @@ class Ad < ApplicationRecord
     ads = includes(:user)
     # если tag_ids не nil
     ads = if tags
-            ads.joins(:tags).where(tags: tags).preload(:tags)
+            ads.joins(:tags).distinct.where(tags: tags).preload(:tags)
           else
             ads.includes(:tag_ads, :tags)
           end
 
-    ads.order(created_at: :desc)
+    ads.reverse_order
   }
+
+  # для админки
+  # names – переданный тег
+  def all_tags=(names)
+    tags << names.split(",").map do |name|
+      Tag.find_or_create_by!(name: name.strip)
+    end
+  end
 end
