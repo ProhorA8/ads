@@ -98,6 +98,7 @@ en:
     edit:
       edit_ad: 'Edit ad'
     index:
+      no_ads: 'There are no ads'
       found_tags: 'Search by tags'
       search: 'Search'
     new:
