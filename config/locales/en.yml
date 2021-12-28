@@ -169,7 +169,7 @@ en:
       resend: 'Send'
     omniauth_callbacks:
       failure: "Could not authenticate you from %{kind} because authentication error."
-      success: "Successfully authenticated from %{kind} account."
+      success: "You are successfully authenticated for %{kind} account."
     passwords:
       change_your_password: 'Change your password'
       change_my_password: 'Change Password'

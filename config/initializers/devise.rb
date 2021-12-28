@@ -269,9 +269,9 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  config.omniauth :github, ENV['GITHUB_ID'], ENV['GITHUB_SECRET']
-  config.omniauth :facebook, ENV['FACEBOOK_ID'], ENV['FACEBOOK_SECRET']
-  config.omniauth :vkontakte, ENV['VK_ID'], ENV['VK_SECRET']
+  config.omniauth :github, ENV['GITHUB_ID'], ENV['GITHUB_SECRET'], scope: 'user,public_repo'
+  config.omniauth :facebook, ENV['FACEBOOK_ID'], ENV['FACEBOOK_SECRET'], scope: 'public_profile,email'
+  config.omniauth :vkontakte, ENV['VK_ID'], ENV['VK_SECRET'], scope: 'email'
 
   # if Rails.application.credentials.omniauth.present?
   #   # Настройки, которые достают ключи из credentials.yml.enc

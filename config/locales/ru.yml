@@ -164,7 +164,7 @@ ru:
       resend: 'Отправить'
     omniauth_callbacks:
       failure: "Не удалось аутентифицировать вас для %{kind} так как ошибка аутентификации."
-      success: "Успешно аутентифицирован для %{kind} акаунта."
+      success: "Вы успешно аутентифицированы для %{kind} акаунта."
     passwords:
       change_your_password: 'Измените свой пароль'
       change_my_password: 'Изменить пароль'
