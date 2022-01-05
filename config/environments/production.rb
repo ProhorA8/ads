@@ -108,4 +108,27 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+
+  # Базовый URL сайта для правильных ссылок в письмах
+  config.action_mailer.default_url_options = {host: 'ads-2021.herokuapp.com'}
+
+  # Ошибки рассылки юзеру не показываем
+  config.action_mailer.raise_delivery_errors = false
+
+  # Делать рассылку писем (при false приложение только имитирует отправку)
+  config.action_mailer.perform_deliveries = true
+
+  # Устанавливаем протокол, по которому отправлять (SMTP)
+  config.action_mailer.delivery_method = :smtp
+
+  # SendGrid
+  ActionMailer::Base.smtp_settings = {
+    :address        => 'smtp.sendgrid.net',
+    :port           => '587',
+    :authentication => :plain,
+    :user_name      => ENV['SENDGRID_USERNAME'],
+    :password       => ENV['SENDGRID_PASSWORD'],
+    :domain         => 'heroku.com',
+    :enable_starttls_auto => true
+  }
 end
