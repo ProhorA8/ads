@@ -273,18 +273,6 @@ Devise.setup do |config|
   config.omniauth :facebook, ENV['FACEBOOK_ID'], ENV['FACEBOOK_SECRET'], scope: 'public_profile,email'
   config.omniauth :vkontakte, ENV['VK_ID'], ENV['VK_SECRET'], scope: 'email'
 
-  # if Rails.application.credentials.omniauth.present?
-  #   # Настройки, которые достают ключи из credentials.yml.enc
-  #   # omniauth:
-  #   #   omniauth_facebook_id: 1234567890123456
-  #   #   omniauth_facebook_secret: 12345678901234567890123456789012
-  #   config.omniauth :facebook, Rails.application.credentials.omniauth[:omniauth_facebook_id],
-  #                   Rails.application.credentials.omniauth[:omniauth_facebook_secret]
-  #
-  #   config.omniauth :vkontakte, Rails.application.credentials.omniauth[:omniauth_vkontakte_id],
-  #                   Rails.application.credentials.omniauth[:omniauth_vkontakte_secret]
-  # end
-
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
