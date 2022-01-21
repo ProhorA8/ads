@@ -21,6 +21,7 @@ gem 'jbuilder'
 gem 'kaminari'
 # Для работы carrierwave с хранилищем Amazon S3
 gem 'fog-aws'
+# Для хранения изображений на амазон
 gem 'aws-sdk-s3', require: false
 # Предоставляет набор помощников для авторизации
 gem 'pundit'
