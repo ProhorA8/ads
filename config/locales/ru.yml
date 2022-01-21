@@ -44,6 +44,7 @@ ru:
         updated: 'Объявление обнавлено!'
         destroyed: 'Объявление удалено!'
       users:
+        created: 'Пользователь создан!'
         updated: 'Пользователь обновлён!'
         destroyed: 'Пользователь удалён!'
     attachments:
@@ -85,6 +86,7 @@ ru:
         edit_user: 'Редактировать пользователя'
       index:
         user_management: 'Управление пользователями'
+        create_user: 'Создать пользователся'
         count_users: 'Количество пользователей: %{count}'
         hash: '#'
         name: 'Имя'
@@ -92,6 +94,8 @@ ru:
         created_at: 'Создан'
         updated_at: 'Обновлён'
         role: 'Роль'
+      new:
+        new_user: 'Новый пользователь'
 
   ads:
     back: 'Назад'

@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     resources :ads
 
     namespace :admin do
-      resources :users, only: %i[index edit update destroy]
+      resources :users
       resources :ads, only: %i[index edit update destroy]
       resources :tags
     end

@@ -39,6 +39,7 @@ en:
   controllers:
     admin:
       users:
+        created: 'User created!'
         updated: 'User updated!'
         destroyed: 'User deleted!'
     attachments:
@@ -80,6 +81,7 @@ en:
         edit_user: 'Edit user'
       index:
         user_management: 'User management'
+        create_user: 'Create user'
         count_users: 'Count of users: %{count}'
         hash: '#'
         name: 'Name'
@@ -87,6 +89,8 @@ en:
         created_at: 'Created by'
         updated_at: 'Updated'
         role: 'Role'
+      new:
+        new_user: 'New user'
 
   ads:
     back: 'Back'

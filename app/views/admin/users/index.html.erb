@@ -1,5 +1,6 @@
 <%# Главная страница админки %>
 <h1 class="mb-4"><%= t('.user_management') %></h1>
+<%= link_to t('.create_user'), new_admin_user_path, class: 'btn btn-outline-success' %>
 <div class="text-md my-4"><%= t '.count_users', count: @users.count %></div>
 
 <% scope = 'activerecord.attributes.user' %>
