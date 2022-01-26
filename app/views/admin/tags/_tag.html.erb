@@ -1,0 +1,14 @@
+<%# Паршал для вывода тега в таблице %>
+<tr>
+  <th scope="row"><%= tag.id %></th>
+  <td><%= tag.name %></td>
+  <td><%= tag.ads.count %></td>
+  <td>
+    <%= link_to t('.edit_tag'), edit_admin_tag_path(tag), class: 'btn btn-secondary' %>
+
+    <% if tag.ads.count.zero? %>
+      <%= link_to t('.delete_tag'), admin_tag_path(tag), class: 'btn btn-danger',
+                          data: {method: :delete, confirm: t('.confirm')} %>
+    <% end %>
+  </td>
+</tr>

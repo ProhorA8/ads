@@ -29,6 +29,8 @@ ru:
         role: 'Роль'
         password: 'Пароль'
         password_confirmation: 'Подтверждение пароля'
+      tag:
+        name: 'Название'
       ad:
         title: 'Заголовок'
         body: 'Описание'
@@ -41,18 +43,22 @@ ru:
   controllers:
     admin:
       ads:
-        updated: 'Объявление обнавлено!'
-        destroyed: 'Объявление удалено!'
+        updated: 'Объявление обнавлено'
+        destroyed: 'Объявление удалено'
       users:
-        created: 'Пользователь создан!'
-        updated: 'Пользователь обновлён!'
-        destroyed: 'Пользователь удалён!'
+        created: 'Пользователь создан'
+        updated: 'Пользователь обновлён'
+        destroyed: 'Пользователь удалён'
     attachments:
       image_delete: 'Изображение удалено'
     ads:
       created: 'Вы создали новое объявление'
       updated: 'Вы обновили объявление'
       destroyed: 'Вы удалили объявление'
+    tags:
+      created: 'Вы создали новый тег'
+      updated: 'Вы обновили тег'
+      destroyed: 'Вы удалили тег'
     users:
       updated: 'Вы обновили свой профиль'
       destroyed: 'Вы удалили свой профиль'
@@ -81,6 +87,23 @@ ru:
         created_at: 'Создано'
         updated_at: 'Обнавлено'
         username: 'Владелец'
+    tags:
+      form:
+        create_tags: 'Создать теги'
+        placeholder_info: 'теги через запятую'
+        save: 'Сохранить'
+        back: 'Назад'
+      tag:
+        edit_tag: 'Редактировать тег'
+        delete_tag: 'Удалить тег'
+        confirm: 'Вы уверены?'
+      edit:
+        tag_editing: 'Редактирование тега'
+      index:
+        all_tags: 'Все теги'
+        number_tags: 'Количество тегов: %{count}'
+        name: 'Назвение'
+        number_ads: 'Количество объявлений'
     users:
       form:
         save: 'Сохранить'

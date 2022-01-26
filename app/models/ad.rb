@@ -22,12 +22,4 @@ class Ad < ApplicationRecord
 
     ads.reverse_order
   }
-
-  # для админки
-  # names – переданный тег
-  def all_tags=(names)
-    tags << names.split(',').map do |name|
-      Tag.find_or_create_by!(name: name.strip)
-    end
-  end
 end

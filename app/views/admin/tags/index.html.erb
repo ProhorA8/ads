@@ -1,0 +1,16 @@
+<%# Главная страница тегов для админки %>
+<h2><%= t '.all_tags' %></h2>
+<h4><%= t('.number_tags', count: @tags.count) %></h4>
+<table class="table table-striped table-hover">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col"><%= t '.name' %></th>
+    <th scope="col"><%= t '.number_ads' %></th>
+    <th scope="col"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <%= render @tags %>
+  </tbody>
+</table>

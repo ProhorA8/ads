@@ -28,6 +28,8 @@ en:
         role: 'Role'
         password: 'Password'
         password_confirmation: 'Password confirmation'
+      tag:
+        name: 'Name'
       ad:
         title: 'Title'
         body: 'Description'
@@ -39,15 +41,19 @@ en:
   controllers:
     admin:
       users:
-        created: 'User created!'
-        updated: 'User updated!'
-        destroyed: 'User deleted!'
+        created: 'User created'
+        updated: 'User updated'
+        destroyed: 'User deleted'
     attachments:
       image_delete: 'Image deleted'
     ads:
       created: 'You have created a new ad'
       updated: "You've updated your ad"
       destroyed: 'You have deleted your ad'
+    tags:
+      created: 'You have created a new tag'
+      updated: 'You updated the tag'
+      destroyed: 'You removed the tag'
     users:
       updated: 'You have updated your profile'
       destroyed: 'You have deleted your profile'
@@ -76,6 +82,23 @@ en:
         created_at: 'Created'
         updated_at: 'Updated'
         username: 'Username'
+    tags:
+      form:
+        create_tags: 'Create tags'
+        placeholder_info: 'tags separated with comma'
+        save: 'Save'
+        back: 'Back'
+      tag:
+        edit_tag: 'Edit tag'
+        delete_tag: 'Delete tag'
+        confirm: 'Are you sure?'
+      edit:
+        tag_editing: 'Tag editing'
+      index:
+        all_tags: 'All tags'
+        number_tags: 'Number of tags: %{count}'
+        name: 'Name'
+        number_ads: 'Number of ads'
     users:
       form:
         save: 'Save'
