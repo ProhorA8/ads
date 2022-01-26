@@ -1,8 +1,8 @@
 module Users
   class OmniauthCallbacksController < Devise::OmniauthCallbacksController
-    # users/omniauth_callbacks#passthru
-    # users/omniauth_callbacks#facebook
+    # users/omniauth_callbacks#passthru – редирект пользователя, когда он захочет авторизоваться через соц. сеть
     # passthru – это действие создаться автоматически после наследования
+    # users/omniauth_callbacks#facebook – приходит ответ от сервера для обработки
 
     def github
       handle_auth 'github'

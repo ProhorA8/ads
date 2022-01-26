@@ -61,13 +61,18 @@ ru:
   admin:
     ads:
       ad:
+        link_edit: 'Редактировать'
+        link_delete: 'Удалить'
         confirm: 'Вы уверены?'
       form:
         all_ad_tags: 'Все теги объявления'
+        add_remove_tags: 'Добавление и удаление тегов'
+        create_tag: 'Создать теги'
+        placeholder_info: 'теги через запятую'
         save: 'Сохранить'
         back: 'Назад'
       edit:
-        edit_ad: 'Редактировать объявление'
+        edit_ad: 'Редактирование объявления – %{ad}'
       index:
         ad_management: 'Управление объявлениями'
         title: 'Заголовок'

@@ -1,4 +1,4 @@
 <%# Редактировать объявление %>
-<h1 class="mb-4"><%= t('.edit_ad') %></h1>
+<h1 class="mb-4"><%= t('.edit_ad', ad: @ad.title)  %></h1>
 
 <%= render 'form', ad: @ad %>

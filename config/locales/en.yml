@@ -56,13 +56,18 @@ en:
   admin:
     ads:
       ad:
+        link_edit: 'Edit'
+        link_delete: 'Delete'
         confirm: 'Are you sure?'
       form:
         all_ad_tags: 'All ad tags'
+        add_remove_tags: 'Adding and removing tags'
+        create_tag: 'Create tags'
+        placeholder_info: 'tags separated with comma'
         save: 'Save'
         back: 'Back'
       edit:
-        edit_ad: 'Edit ad'
+        edit_ad: 'Editing an ad – %{ad}'
       index:
         ad_management: 'Manage ads'
         title: 'Title'

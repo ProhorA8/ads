@@ -8,8 +8,8 @@
   <td><%= l(ad.updated_at, format: :short ) %></td>
   <td><%= ad.user.username %></td>
   <td>
-    <%= link_to 'Edit', edit_admin_ad_path(ad), class: 'btn btn-secondary' %>
-    <%= link_to 'Delete', admin_ad_path(ad), class: 'btn btn-danger',
+    <%= link_to t('.link_edit'), edit_admin_ad_path(ad), class: 'btn btn-secondary' %>
+    <%= link_to t('.link_delete'), admin_ad_path(ad), class: 'btn btn-danger',
                 data: {method: :delete, confirm: t('.confirm')} %>
   </td>
 </tr>

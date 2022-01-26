@@ -18,18 +18,36 @@
       <%= t '.all_ad_tags' %>
     </div>
 
-    <div class="shadow p-4 mb-5 bg-white rounded ml-4 pr-4">
+    <div class="shadow p-4 bg-white rounded ml-4 pr-4">
       <%= render partial: 'tags/tag', collection: ad.tags %>
     </div>
   </div>
 
   <div class="mb-3 row">
+    <div class="col-sm-4 col-form-label">
+      <%= f.label t '.add_remove_tags' %>
+    </div>
+
+    <%#
+            collection_select – через дропдаун выбираем тэги
+            tag_ids – название поля
+            ad.tags – передадим коллекцию
+            id – метод при отображении id в разметке
+            name – то что видет пользователь
+    %>
+    <div class="form-field">
+      <%= f.collection_select :tag_ids, ad.tags, :id, :name, {}, multiple: true,
+                              class: 'js-multiple-select js-ajax-select w-100', data: {'ajax-url': '/api/tags'} %>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
     <div class="col-sm-2 col-form-label">
-      <%= f.label :tags %>
+      <%= f.label t '.create_tag' %>
     </div>
 
     <div class="col-sm-4">
-      <%= f.text_field :all_tags, placeholder: "Tags separated with comma" %>
+      <%= f.text_field :all_tags, class: 'form-control', placeholder: t('.placeholder_info') %>
     </div>
   </div>
 
