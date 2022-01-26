@@ -7,6 +7,18 @@ module Admin
       @tags = Tag.all
     end
 
+    def create
+      @tag = Tag.new(tag_params)
+
+      if @tag.save
+        flash[:success] = t('controllers.tags.created')
+
+        redirect_to admin_tags_path
+      else
+        render :edit, status: :unprocessable_entity
+      end
+    end
+
     def edit; end
 
     def update
@@ -33,7 +45,7 @@ module Admin
     end
 
     def tag_params
-      params.require(:tag).permit(:name, :all_tags)
+      params.require(:tag).permit(:name)
     end
   end
 end

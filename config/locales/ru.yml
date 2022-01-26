@@ -19,6 +19,7 @@ ru:
     models:
       user: 'Пользователь'
       ad: 'Объявление'
+      tag: 'Тег'
 
     # Перевод названий аттрибутов моделей
     attributes:
@@ -102,6 +103,7 @@ ru:
       index:
         all_tags: 'Все теги'
         number_tags: 'Количество тегов: %{count}'
+        placeholder_info: 'теги через запятую'
         name: 'Назвение'
         number_ads: 'Количество объявлений'
     users:

@@ -97,6 +97,7 @@ en:
       index:
         all_tags: 'All tags'
         number_tags: 'Number of tags: %{count}'
+        placeholder_info: 'tags separated with comma'
         name: 'Name'
         number_ads: 'Number of ads'
     users:

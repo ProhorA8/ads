@@ -1,6 +1,25 @@
 <%# Главная страница тегов для админки %>
 <h2><%= t '.all_tags' %></h2>
 <h4><%= t('.number_tags', count: @tags.count) %></h4>
+
+<%# Создание тегов %>
+<%= form_with model: [:admin, Tag.new] do |f| %>
+  <div class="mb-3 row">
+    <div class="col-sm-2 col-form-label">
+      <%= f.label :name %>
+    </div>
+
+    <div class="d-flex justify-content-start">
+      <div class="col-sm-4">
+        <%= f.text_field :name, class: 'form-control', placeholder: t('.placeholder_info')  %>
+      </div>
+      <div class="px-2">
+        <%= f.submit class: 'btn btn-outline-primary' %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
 <table class="table table-striped table-hover">
   <thead>
   <tr>

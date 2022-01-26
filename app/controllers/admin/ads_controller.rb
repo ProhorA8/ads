@@ -33,7 +33,7 @@ module Admin
     end
 
     def ad_params
-      params.require(:ad).permit(:status, :all_tags, tag_ids: [])
+      params.require(:ad).permit(:status, tag_ids: [])
     end
   end
 end
