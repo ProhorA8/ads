@@ -30,10 +30,14 @@
   <%= paginate @ads %>
 </div>
 
-<%# Все объявления %>
-<div class="column-1-6">
-  <%= render @ads %>
-</div>
+<%# Показываем только подтверждённые объявления %>
+<% @ads.each do |ad| %>
+  <% if policy(ad).show? %>
+    <div class="column-1-6">
+      <%= render ad %>
+    </div>
+  <% end %>
+<% end %>
 
 <%# Пагинация, если объявлений больше 5 шт.%>
 <div class="text-center">

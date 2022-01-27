@@ -13,9 +13,6 @@ class ApplicationController < ActionController::Base
   # Настройка для работы Девайза, когда юзер правит профиль
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  # Хелпер метод, доступный во вьюхах
-  helper_method :current_user_can_edit?
-
   # Обработать ошибку авторизации
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
@@ -27,15 +24,6 @@ class ApplicationController < ActionController::Base
       keys: %i[password password_confirmation current_password]
     )
   end
-
-  # Вспомогательный метод, возвращает true, если текущий залогиненный юзер
-  # может править и удалять указанное объявление
-  # Отключаем копа, проверяющего насколько информативны имена параметров метода
-  # rubocop:disable Naming/MethodParameterName
-  def current_user_can_edit?(ad)
-    user_signed_in? && ad.user == current_user
-  end
-  # rubocop:enable all
 
   private
 

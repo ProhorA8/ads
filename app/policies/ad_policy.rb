@@ -1,7 +1,7 @@
 class AdPolicy < ApplicationPolicy
   # все могут просматривать объявления
   def show?
-    edit?
+    ad_confirmed?(record)
   end
 
   def edit?
@@ -36,6 +36,11 @@ class AdPolicy < ApplicationPolicy
   end
 
   private
+
+  # Проверка, является ли объявление подтверждённым
+  def ad_confirmed?(ad)
+    ad.status == 'approved'
+  end
 
   # Отключаем копа, проверяющего насколько информативны имена параметров метода
   # rubocop:disable Naming/MethodParameterName
