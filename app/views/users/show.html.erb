@@ -19,26 +19,23 @@
 </table><br>
 
 <div class="my-4">
+  <%= link_to t('.root'), root_path, class: 'btn btn-outline-secondary' %>
+
   <% if @user == current_user %>
-      <%= link_to t('.edit_user'), edit_user_path(@user), class: 'btn btn-outline-secondary' %>
-  <% end %>
-  <%= link_to t('.root'), root_path, class: 'btn btn-outline-secondary' %><br>
-</div>
+    <%= link_to t('.edit_user'), edit_user_path(@user), class: 'btn btn-outline-secondary' %>
 
-<%# Ссылка создания объявления пользователя с проверкой через pundit %>
-<div>
-  <% if policy(Ad).create? %>
-    <%= link_to t('.create_ad'), new_ad_path, class: 'btn btn-outline-success' %>
-  <% end %>
-</div>
+    <%# Ссылку создать объявление админ не видит %>
+    <% if policy(@user).admin_forbidden? %>
+      <%= link_to t('.create_ad'), new_ad_path, class: 'btn btn-outline-success' %>
+    <% end %>
 
-<div class="my-4 text-muted">
-  <% if @user == current_user %>
-    <%= t '.my_ads' %>
+    <div class="my-4 text-muted">
+      <%= t '.my_ads' %>
+    </div>
   <% end %>
 </div>
 
-<%# Вывод всех объявлений пользователя %>
+<%# Вывод всех объявлений пользователя, если они есть %>
 <% if @ads.any? %>
   <%= render partial: 'ads/ad', collection: @ads %>
 <% else %>
